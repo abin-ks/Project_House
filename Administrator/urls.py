@@ -43,8 +43,8 @@ urlpatterns = [
     re_path('projects/', views.projects, name='projects'),
 
     # display requested projects on admin side
-    re_path('reqprojects/', views.reqprojects, name='reqprojects'),
-    re_path('adminDashboard/reqprojects/', views.reqprojects, name='reqprojects'),
+    re_path('reqprojectss/', views.reqprojectss, name='reqprojectss'),
+    # re_path('adminDashboard/reqprojects/', views.reqprojects, name='reqprojects'),
 
     #not working
     re_path('viewprojects/', views.viewprojects, name='viewprojects'),
@@ -123,7 +123,7 @@ urlpatterns = [
 
     re_path('user_req_ieee_projects/user_req_ieeeprojectdb/', views.user_req_ieeeprojectdb, name='user_req_ieeeprojectdb'),
 
-    re_path('req_ieeeprojects/', views.req_ieeeprojects, name='req_ieeeprojects'),
+    re_path('req_ieeeproject/', views.req_ieeeproject, name='req_ieeeproject'),
 
     re_path('user_req_inbuilt_projects/<int:id>', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'),
 

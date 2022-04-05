@@ -382,12 +382,13 @@ def result(request):
         return page_not_found(request)
 
 #new project request
-def reqprojects(request):
-    if 'admin' in request.session:
-        req1 = Userrequestproject.objects.all()
-        return render(request, 'Administrator/requested projects.html', {'req': req1})
-    else:
-        return redirect('admin_login')
+def reqprojectss(request):
+    # if 'admin' in request.session:
+    #     req1 = Userrequestproject.objects.all()
+    #     return render(request, 'Administrator/requested_projects.html', {'req': req1})
+    # else:
+    #     return redirect('admin_login')
+    return render(request, 'Administrator/requested_projects.html')
 
 
 def userreqprojectdb(request):
@@ -510,12 +511,13 @@ def user_req_ieeeprojectdb(request):
         messages.success(request,'Thank you, Admin will get to you soon')
     return render(request,'Administrator/user_request_ieee_projects.html')
 
-def req_ieeeprojects(request):
-    if 'admin' in request.session:
-        req1 = User_req_ieeeproject.objects.all()
-        return render(request, 'Administrator/requested_ieee_projects.html', {'req': req1})
-    else:
-        return redirect('admin_login')
+def req_ieeeproject(request):
+    # if 'admin' in request.session:
+    #     req1 = User_req_ieeeproject.objects.all()
+    #     return render(request, 'Administrator/requested_ieee_projects.html', {'req': req1})
+    # else:
+    #     return redirect('admin_login')
+    return render(request, 'Administrator/requested_ieee_projects.html')
 
 
 def user_req_projectdb(request):

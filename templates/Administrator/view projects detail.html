@@ -1,4 +1,6 @@
+{% extends 'Administrator/adminbase.html' %}
 {% load static %}
+{% block body %}
 <html dir="ltr" lang="en">
 
 <head>
@@ -192,7 +194,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item" style="background-image: url('{% static "images/sidenav.png" %}')">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'reqprojects' %}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'reqprojectss' %}"
                                 aria-expanded="false">
                        <b class="logo-icon">
                             <!-- Dark Logo icon -->
@@ -369,3 +371,4 @@
 </body>
 
 </html>
+{% endblock %}
