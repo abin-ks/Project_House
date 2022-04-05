@@ -1,47 +1,66 @@
 {% extends 'Administrator/adminbase.html' %} {% load static %} {% block body %}
+<style>
+    #choose::file-selector-button {
+        background-color: rgb(100, 139, 165);
+        /* padding: 12px; */
+        color: white;
+        width: 100px;
+        height: 25px;
+    }
+</style>
+<div class="row" style="padding-top:20px; ">
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2"></div>
 
-      <div class="card">
-        <div class="card-body">
- <!-- <div class="page-breadcrumb"> -->
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Platforms</h4>
-                    </div>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <div class="row">
-                <div class="col-lg-12 grid-margin stretch-card">
-            <!-- <div class="ctn"> -->
-                <form action="/platform/addnewplatformdb/" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
-                                 <input type="hidden" name="csrfmiddlewaretoken" value="b1nsAXd23ucqJmJ9MoYjEZjOiFoWxoAA58wAZc8TfOpl12Ka5HCwmwdKtsBgDOZA">
-                	<div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="/static/plugins/images/Icon-awesome-circle-notch.png" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Enter platform name:</span>
-                    <input type="text" name="platformname" placeholder="Enter platform Name" style="margin-left:200px;width:50%;position:relative;bottom: 20px;">
-                </div>
-                
-                      <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="/static/plugins/images/Icon-awesome-circle-notch.png" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">upload thumbnail:</span>
-                    <input type="file" name="thumbimg"  style="margin-left: 200px;position:relative;bottom: 25px;width: 50%;">
-                      </div>
-                     <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="/static/plugins/images/Icon-awesome-circle-notch.png" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Enter short description:</span>
-                   <textarea class="form-control" rows="5" name="description" id="shortdescription" style="margin-left: 200px;position: relative;bottom: 34px;width: 50%;"> </textarea>
-                </div>
-                <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
+    <div class="col-12 col-sm-8 col-md-8 col-lg-8 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body" style="height:auto;padding-top:20px; ">
+                <br>
                 <center>
-                   <button class="btn btn-secondary cancel" type="reset"  style="width:100px;background: #B2C1C2;border-radius: 16px;">Cancel</button>
-                   <button class="btn btn-secondary update" type="submit" style="width:100px;background: #66F0F5;border-radius: 16px;">Submit</button>
-                                       
-                 </center>
-                 </div>
-                            </form>
+                    <h3 class="card-title" style="font-size: x-large;">platforms</h3>
+                </center>
+                <br><br>
+
+                <form class="forms-sample" method="post" autocomplete="off">
+                    {% csrf_token %}
+                    
+
+                    <div class="form-group">
+                        <label for="exampleInputName1"style="font-weight: 700;">enter platform name:</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="enter platform name:">
+                      </div>
+
+                      <div class="form-group">
+                        <label style="font-weight: 700;">Upload Thumbnail:</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="file" name="files">choose file</button>
+                          </span>
                         </div>
-</div>
-</div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="exampleTextarea1" style="font-weight: 700;">  Short Description </label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                      </div>
+
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+          
+            </form>
+        </div>
+        </div>
+    </div>
 </div>
 
-{% endblock body %}
+
+
+
+
+
+
+
+
+{% endblock %}
