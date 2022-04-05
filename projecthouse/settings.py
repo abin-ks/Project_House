@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'projecthouse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'projecthousedb',
+        'NAME': 'projecthousedbase',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

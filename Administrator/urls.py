@@ -15,7 +15,7 @@ urlpatterns = [
     #platform 
 
     #add platform 
-    re_path('platform/', views.platform, name='platform'),
+    re_path('platform/', views.platforms, name='platform'),
 
     #display platform
     re_path('mainplatform/', views.mainplatform, name='mainplatform'),
@@ -224,7 +224,7 @@ urlpatterns = [
     re_path('score1', views.score1, name='score1'),
     re_path('gocertificate', views.gocertificate, name='gocertificate'),
     re_path('gonocertificate', views.gonocertificate, name='gonocertificate'),
-    
+    re_path('plat/', views.plat, name='plat'),
     
     
 ]

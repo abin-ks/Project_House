@@ -79,13 +79,13 @@ def adminDash(request):
 
 #add platform
 def platform(request):
-    return render(request, 'Administrator/add new platform.html')
+    return render(request, 'Administrator/main_platform.html')
 
 #display platform
 def mainplatform(request):
     if 'admin' in request.session:
         platform = Addnewplatform.objects.all()
-        return render(request, 'Administrator/main platform.html', {'plat': platform})
+        return render(request, 'Administrator/main_platform.html', {'plat': platform})
     else:
         return redirect('admin_login')
 
@@ -1296,3 +1296,5 @@ def score1(request):
             return redirect('gocertificate')
         else:     
             return redirect('gonocertificate')
+def plat(request):
+    return render(request,'plat.html')
