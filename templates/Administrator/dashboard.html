@@ -1,123 +1,267 @@
-{% extends 'Administrator/adminbase.html' %} {% load static %} {% block content %}
-<div class="page-wrapper" style="background: #FFFFFF;">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4>Dashboard</h4>
-            </div>
-        </div>
+{% extends 'Administrator/adminbase.html' %} {% load static %} {% block content
+%}
+<div class="page-wrapper" style="background: #ffffff">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4>Dashboard</h4>
+      </div>
     </div>
-    <div class="container">
-        <div class="card" style="box-shadow: 5px 5px 10px #888888; border-radius: 8px;">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="d-flex flex-row comment-row p-3 mt-0">
-                        <div class="comment-text ps-2 ps-md-3 w-100" style="margin-top: 1rem;">
-                            <h3 style="text-align: center;color:#00ADB5;" class="font-medium">WELCOME BACK !!!</h3>
-                            <hr style="width: 95%;">
-                            <center><span class="mb-3 d-block">Project house - Admin</span> {% for x in profile %}</center>
+  </div>
+  <div class="container">
+    <div
+      class="card"
+      style="box-shadow: 5px 5px 10px #888888; border-radius: 8px"
+    >
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <div class="d-flex flex-row comment-row p-3 mt-0">
+            <div
+              class="comment-text ps-2 ps-md-3 w-100"
+              style="margin-top: 1rem"
+            >
+              <h3
+                style="text-align: center; color: #00adb5"
+                class="font-medium"
+              >
+                WELCOME BACK !!!
+              </h3>
+              <hr style="width: 95%" />
+              <center>
+                <span class="mb-3 d-block">Project house - Admin</span> {% for x
+                in profile %}
+              </center>
 
-                            <div class="row" style="margin-bottom: 3%;">
-                                <div class="col-md-12 col-lg-6">
-                                    <img class="mx-4 test" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                                    <span class="font-medium" style="margin-left: 3px;">{{ x.name }}</span>
-                                </div>
-                                <div class="col-md-12 col-lg-6 ">
-                                    <img class="mx-4" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                                    <span class="font-medium" style="margin-left: 3px;">{{ x.phone }}</span>
-                                    <!--</div>-->
-                                    <!--<div class="col-md-12 col-lg-6" style="margin-left: -10%;">-->
-
-                                    <a href=""><img id="bin" src="{% static 'plugins/images/Icon-material-delete.png' %}" alt="Platforms" width="12px" style="margin-left: 35%;"></a>
-                                </div>
-                            </div>
-                            {% endfor %}
-                            <!-- <label style="text-align: center;">{{ profile.phone }}</label> -->
-                        </div>
-                        <div class="p-2"><img src="{% static 'images/Ellipse3.png' %}" alt="user" width="83" class="rounded-circle"></div>
-
-                    </div>
+              <div class="row" style="margin-bottom: 3%">
+                <div class="col-md-12 col-lg-6">
+                  <img
+                    class="mx-4 test"
+                    src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}"
+                    alt="loading"
+                    width="16"
+                  />
+                  <span class="font-medium" style="margin-left: 3px"
+                    >{{ x.name }}</span
+                  >
                 </div>
+                <div class="col-md-12 col-lg-6">
+                  <img
+                    class="mx-4"
+                    src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}"
+                    alt="loading"
+                    width="16"
+                  />
+                  <span class="font-medium" style="margin-left: 3px"
+                    >{{ x.phone }}</span
+                  >
+                  <!--</div>-->
+                  <!--<div class="col-md-12 col-lg-6" style="margin-left: -10%;">-->
+
+                  <a href=""
+                    ><img
+                      id="bin"
+                      src="{% static 'plugins/images/Icon-material-delete.png' %}"
+                      alt="Platforms"
+                      width="12px"
+                      style="margin-left: 35%"
+                  /></a>
+                </div>
+              </div>
+              {% endfor %}
+              <!-- <label style="text-align: center;">{{ profile.phone }}</label> -->
             </div>
+            <div class="p-2">
+              <img
+                src="{% static 'images/Ellipse3.png' %}"
+                alt="user"
+                width="83"
+                class="rounded-circle"
+              />
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="container mb-3">
-        <div class="row">
-            <div class="col-12 col-lg-4 mt-3">
-                <div class="card w-100" style="box-shadow:5px 5px 10px #888888; border-radius: 8px; height: 250px;">
-                    <div class="card-body">
-                        <h5 class="box-title" style="color: rgb(62, 177, 223);">CURRENT PROJECTS</h5>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li style="margin-left: 1rem;"><span class="counter text-success">{{ project }}</span></li>
-                            <li class="ms-auto">
-                                <div id="sparklinedash"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+  </div>
+  <div class="container mb-3">
+    <div class="row">
+      <div class="col-12 col-lg-4 mt-3">
+        <div
+          class="card w-100"
+          style="
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 8px;
+            height: 250px;
+          "
+        >
+          <div class="card-body">
+            <h5 class="box-title" style="color: rgb(62, 177, 223)">
+              CURRENT PROJECTS
+            </h5>
+            <ul class="list-inline two-part d-flex align-items-center mb-0">
+              <li style="margin-left: 1rem">
+                <span class="counter text-success">{{ project }}</span>
+              </li>
+              <li class="ms-auto">
+                <div id="sparklinedash">
+                  <canvas
+                    width="67"
+                    height="30"
+                    style="
+                      display: inline-block;
+                      width: 67px;
+                      height: 30px;
+                      vertical-align: top;
+                    "
+                  ></canvas>
                 </div>
-            </div>
-            <div class="col-12 col-lg-4 mt-3">
-                <div class="card w-100" style="box-shadow:5px 5px 10px #888888; border-radius: 8px; height: 250px;">
-                    <div class="card-body">
-                        <h5 class="box-title" style="color: rgb(62, 177, 223);">PROJECT REQUESTS</h5>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li style="margin-left: 1rem;"><span class="counter text-purple">{{ proreq }}</span></li>
-                            <li class="ms-auto">
-                                <div id="sparklinedash2">
-                                    <canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 mt-3">
-                <div class="card w-100" style="box-shadow:5px 5px 10px #888888; border-radius: 8px; height: 250px;">
-                    <div class="card-body">
-                        <h5 class="box-title" style="color: rgb(62, 177, 223);">REQUESTED PROJECTS</h5>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li style="margin-left: 1rem;"><span class="counter text-info">{{ requestedpro }}</span></li>
-                            <li class="ms-auto">
-                                <div id="sparklinedash3"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 mt-3">
-                <div class="card w-100" style="box-shadow:5px 5px 10px #888888; border-radius: 8px; height: 250px;">
-                    <div class="card-body">
-                        <h5 class="box-title" style="color: rgb(62, 177, 223);">CURRENT PLATFORMS</h5>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li style="margin-left: 1rem;"><span class="counter text-info">{{ platform }}</span></li>
-                            <li class="ms-auto">
-                                <div id="sparklinedash3"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 mt-3">
-                <div class="card w-100" style="box-shadow:5px 5px 10px #888888; border-radius: 8px; height: 250px;">
-                    <div class="card-body">
-                        <h5 class="box-title" style="color: rgb(62, 177, 223);">VISITORS GRAPH</h5>
-                        <hr>
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li class="ms-auto">
-                                <div id="sparklinedash3"><canvas width="67" height="30" style="display: inline-block; width: 150px; height: 30px; vertical-align: top;"></canvas>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="col-12 col-lg-4 mt-3">
+        <div
+          class="card w-100"
+          style="
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 8px;
+            height: 250px;
+          "
+        >
+          <div class="card-body">
+            <h5 class="box-title" style="color: rgb(62, 177, 223)">
+              PROJECT REQUESTS
+            </h5>
+            <ul class="list-inline two-part d-flex align-items-center mb-0">
+              <li style="margin-left: 1rem">
+                <span class="counter text-purple">{{ proreq }}</span>
+              </li>
+              <li class="ms-auto">
+                <div id="sparklinedash2">
+                  <canvas
+                    width="67"
+                    height="30"
+                    style="
+                      display: inline-block;
+                      width: 67px;
+                      height: 30px;
+                      vertical-align: top;
+                    "
+                  ></canvas>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 mt-3">
+        <div
+          class="card w-100"
+          style="
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 8px;
+            height: 250px;
+          "
+        >
+          <div class="card-body">
+            <h5 class="box-title" style="color: rgb(62, 177, 223)">
+              REQUESTED PROJECTS
+            </h5>
+            <ul class="list-inline two-part d-flex align-items-center mb-0">
+              <li style="margin-left: 1rem">
+                <span class="counter text-info">{{ requestedpro }}</span>
+              </li>
+              <li class="ms-auto">
+                <div id="sparklinedash3">
+                  <canvas
+                    width="67"
+                    height="30"
+                    style="
+                      display: inline-block;
+                      width: 67px;
+                      height: 30px;
+                      vertical-align: top;
+                    "
+                  ></canvas>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 mt-3">
+        <div
+          class="card w-100"
+          style="
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 8px;
+            height: 250px;
+          "
+        >
+          <div class="card-body">
+            <h5 class="box-title" style="color: rgb(62, 177, 223)">
+              CURRENT PLATFORMS
+            </h5>
+            <ul class="list-inline two-part d-flex align-items-center mb-0">
+              <li style="margin-left: 1rem">
+                <span class="counter text-info">{{ platform }}</span>
+              </li>
+              <li class="ms-auto">
+                <div id="sparklinedash3">
+                  <canvas
+                    width="67"
+                    height="30"
+                    style="
+                      display: inline-block;
+                      width: 67px;
+                      height: 30px;
+                      vertical-align: top;
+                    "
+                  ></canvas>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 mt-3">
+        <div
+          class="card w-100"
+          style="
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 8px;
+            height: 250px;
+          "
+        >
+          <div class="card-body">
+            <h5 class="box-title" style="color: rgb(62, 177, 223)">
+              VISITORS GRAPH
+            </h5>
+            <hr />
+            <ul class="list-inline two-part d-flex align-items-center mb-0">
+              <li class="ms-auto">
+                <div id="sparklinedash3">
+                  <canvas
+                    width="67"
+                    height="30"
+                    style="
+                      display: inline-block;
+                      width: 150px;
+                      height: 30px;
+                      vertical-align: top;
+                    "
+                  ></canvas>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
