@@ -204,7 +204,7 @@ urlpatterns = [
     re_path('usercreate', views.usercreate, name='usercreate'),
 
 
-    re_path('gologin/', views.gologin, name='gologin'),
+    re_path(r'^gologins$', views.gologins, name='gologins'),
 
 
     re_path('gosignup/', views.gosignup, name='gosignup'),

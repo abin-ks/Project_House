@@ -1129,7 +1129,7 @@ def usercreate(request):
                     user = usersign.objects.create(fullname=fullname,platformid=platformid, email=email,
                                                     level=level,cno=cno,password=password,score=0)
                     user.save()
-                    return redirect('gologin')
+                    return redirect('gologins')
             else:
                 messages.info(request, 'Password and conform password does not match')
                 return redirect('gosignup')
@@ -1138,7 +1138,7 @@ def usercreate(request):
 
 
 
-def gologin(request):
+def gologins(request):
      
     return render(request, 'user/user_login.html')
 def gosignup(request):
@@ -1236,7 +1236,7 @@ def userlogout(request):
     request.session["level"] = ""
     request.session["platform"] = ""
     auth.logout(request)
-    return redirect('gologin')   
+    return redirect('gologins')   
 
 def edituserprofile(request):
    
@@ -1260,7 +1260,7 @@ def updateuserprofile(request):
 
         l.save()
         
-        return redirect('gologin')
+        return redirect('gologins')
         
 def certificate(request):
     l= usersign.objects.get(sid=request.session['login'])
