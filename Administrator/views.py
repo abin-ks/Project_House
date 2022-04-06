@@ -511,14 +511,13 @@ def user_req_ieeeprojectdb(request):
         messages.success(request,'Thank you, Admin will get to you soon')
     return render(request,'Administrator/user_request_ieee_projects.html')
 
-def req_ieeeproject(request):
+def req_ieee(request):
     # if 'admin' in request.session:
-    #     req1 = User_req_ieeeproject.objects.all()
-    #     return render(request, 'Administrator/requested_ieee_projects.html', {'req': req1})
+    #     req1 = User_req_ieee.objects.all()
+    #     return render(request, 'Administrator/req_ieeeproject.html', {'req': req1})
     # else:
     #     return redirect('admin_login')
-    return render(request, 'Administrator/requested_ieee_projects.html')
-
+    return render(request, 'Administrator/req_ieeeproject.html')
 
 def user_req_projectdb(request):
     if request.method == 'POST':
