@@ -53,7 +53,7 @@ urlpatterns = [
     re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
-    re_path('',views.userdashboard, name='userdashboard'),
+    re_path('userdashboard/',views.userdashboard, name='userdashboard'),
 
     #add project
     re_path('addproject/', views.addproject, name='addproject'),
@@ -213,7 +213,7 @@ urlpatterns = [
     re_path('userdash', views.userdash, name='userdash'),
 
     re_path('userprofile', views.userprofile, name='userprofile'),
-    re_path('tutorials', views.tutorials, name='tutorials'),
+    re_path('viewtutorial/', views.viewtutorial, name='viewtutorial'),
    
     re_path('tutorialview/<int:lectureid>', views.tutorialview, name='tutorialview'),
     re_path('userlogout', views.userlogout, name='userlogout'),
@@ -225,6 +225,8 @@ urlpatterns = [
     re_path('gocertificate', views.gocertificate, name='gocertificate'),
     re_path('gonocertificate', views.gonocertificate, name='gonocertificate'),
     re_path('plat/', views.plat, name='plat'),
+    re_path('view_tutorials/', views.view_tutorials, name='view_tutorials'),
+    re_path('user_view_tutorials/', views.user_view_tutorials, name='user_view_tutorials'),
     
     
 ]

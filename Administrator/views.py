@@ -747,7 +747,7 @@ def mailmeresult(request):
 
 def viewtutorial(request):
     platformname = Addnewplatform.objects.all()
-    return render(request, 'Administrator/tutorilsusermain.html', {'platformname': platformname})
+    return render(request, 'user/view_tutorial.html', {'platformname': platformname})
 
 def addvediotutorial(request):
     platformname = Addnewplatform.objects.all()
@@ -801,7 +801,7 @@ def userviewtutorial(request):
             re4 = tutorial.objects.filter(platform_name=plat)[4]
         except:
             re4 = "none"
-        return render(request, 'Administrator/tutorialdisplay userside.html',
+        return render(request, 'user/user_view_tutorial.html',
                   {'tutorial': re,'tutorial2':re1,'tutorial3':re2,'tutorial4':re3,'tutorial5':re4,'platform':platformm})
 
 
@@ -1298,3 +1298,9 @@ def score1(request):
             return redirect('gonocertificate')
 def plat(request):
     return render(request,'plat.html')
+
+def view_tutorials(request):
+    return render(request, 'user/view_tutorial.html')
+
+def user_view_tutorials(request):
+    return render(request, 'user/user_view_tutorial.html')

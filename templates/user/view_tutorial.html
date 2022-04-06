@@ -1,0 +1,83 @@
+{% extends 'user/userbase.html' %} {% load static %} {% block body %}
+<div class="row">
+    <div class="col-12">
+
+
+      <div><h4 style="position: relative;top: 50px"> <center>Select a platform to view tutorials  </center></h4></div>
+    </div>
+    
+      <hr style="position: relative;top: 50px;">
+
+
+      
+               
+                <div class="col-md-6 mb-4" style="margin-left: 25%; margin-right: 20%;">
+    
+    
+       <!-- <section class="pr-1"> -->
+    
+        
+
+           <div style="text-align: center;">
+
+                    <div class="card" style="top: 80px;">
+    
+                      <div class="card-body px-lg-5 pt-0">
+    
+                        <!-- Form -->
+                        <!-- <form action='user_view_tutorial' method="post" onsubmit="return myfun()" style="color: #757575;">
+                            {% csrf_token %} -->
+                            <input type="hidden" name="csrfmiddlewaretoken" value="uG0gl2CtjZfUXa3NnyC8gjnq4BILnK0laHLcxPtI7wZ03eOfi8kZ2iIL7CEvRavN">
+    
+                          <div class="form-row">
+                            <div class="col">
+                              <!-- First name -->
+                              <br>
+    
+    
+                       <select class="form-select" name="selectplatform" aria-label="Default select example" style="width: 160px;position: relative;
+        bottom: px;">
+        
+                                            
+                                                <option value="Unity">Unity</option>
+                                            
+                                                <option value="Python">Python</option>
+                                            
+                                                <option value="Machine Learning">Machine Learning</option>
+                                            
+                       </select>
+                       <br>
+                       <br>
+                        
+                          
+                          <button class="btn btn-primary"style="background-color:red;">Cancel</button>
+                          <a href="{% url 'user_view_tutorials' %}">
+                          <button type="button" class="btn btn-primary " style="background-color: blue;">Start</button></a>
+                          <!-- Social register -->
+                        <!-- </form> -->
+                      </div>
+                    </div>
+            
+           </div>
+    
+    
+    
+                          </section>
+                  <!--Section: Live preview-->
+    
+                </div>
+                <!--Grid column-->
+    
+              
+              <!--Grid row-->
+    
+            </section>
+            
+
+        </div>
+      
+      
+{% endblock %}
+    
+   
+    

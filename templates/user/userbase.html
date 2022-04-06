@@ -26,7 +26,7 @@
             <ul>
                 <li><a href="{% url 'userdash' %}"><i class="fas fa-user-alt"></i><span> Dashboard</span></a></li>
                 <li><a href="{% url 'userprofile' %}"><i class="fas fa-user-alt"></i><span> My Profile</span></a></li>
-                <li><a href="{% url 'tutorials' %}"><i class="fas fa-project-diagram"></i><span> Tutorials</span></a></li>
+                <li><a href="{% url 'viewtutorial' %}"><i class="fas fa-project-diagram"></i><span> Tutorials</span></a></li>
                 <li><a href="{% url 'certificate' %}"><i class="fab fa-buffer"></i><span> Certificate</span></a></li>
 
                 <li><a href="{% url 'userlogout' %}"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a></li>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </nav>
-            {% block content %} {% endblock %}
+            {% block body %} {% endblock body %}
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
