@@ -53,7 +53,7 @@ urlpatterns = [
     re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
-    re_path('',views.userdashboard, name='userdashboard'),
+    re_path('userdashboard/',views.userdashboard, name='userdashboard'),
 
     #add project
     re_path('addproject/', views.addproject, name='addproject'),
@@ -124,6 +124,9 @@ urlpatterns = [
     re_path('user_req_ieee_projects/user_req_ieeeprojectdb/', views.user_req_ieeeprojectdb, name='user_req_ieeeprojectdb'),
 
     re_path('req_ieee/', views.req_ieee, name='req_ieee'),
+    
+    re_path('userviewpy/', views.userviewpy, name='userviewpy'),
+
 
     re_path('user_req_inbuilt_projects/<int:id>', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'),
 

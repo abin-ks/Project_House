@@ -1297,3 +1297,6 @@ def score1(request):
             return redirect('gocertificate')
         else:     
             return redirect('gonocertificate')
+
+def userviewpy(request):
+     return render(request,'userviewpython.html')
