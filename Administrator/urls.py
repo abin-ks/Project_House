@@ -11,7 +11,7 @@ urlpatterns = [
     re_path('adminDash/deleteprofile/<int:id>/', views.deleteprofile,name='deleteprofile'),
 
     #intership
-    re_path('intership/', views.intership, name='intership'),
+    re_path(r'^intership$', views.intership, name='intership'),
     #platform 
 
     #add platform 
