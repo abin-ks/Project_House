@@ -1,31 +1,26 @@
 {% extends 'Administrator/adminbase.html' %}
 {% load static %} {% block body %} {% csrf_token %}
-  <div class="container">
-    <div class="row">
-      <div class="break-all">
-        <h6 style="color: #0cd8eced">{{ title }}</h6>
-        <hr />
-        <p style="text-align: justify">Click here to download the ieee paper</p>
-        <div class="d-flex justify-content-start">
-         
-            
-            <div class="form-check">
-                <label class="form-check-label text-muted">
-        </div>
-        <a href="{% url 'ieee2' %}">
-        <button type="submit" class="btn btn-primary me-2 w-10">Request Project</button>
-    </a>
-        <a href="">
-        <button class="btn btn-light w-10"   type="reset">Download</button>
-    </a>
-        </div>
-        </div>
 
-            
-         
-         
-            
+
+<div class="form-group">
+    <div class="grid-margin stretch-card" style="margin-top: -20px">      <div class="break-all">
+        <div class="card" style="width: 50rem">
+            <div class="card-body">
+                <h1 class="card-title" style="font-size: 27px">IEEE</h1>
+
+
+                <p style="text-align: justify">Click here to download the ieee paper</p>
+        <div class="d-flex justify-content-start">
+        <div class="form-group row">
+        <div class="form-check">
+        <label class="form-check-label text-muted">
+        <a href="{% url 'ieee2' %}">
+        <button type="button" class="btn btn-primary me-2 w-10">Request Project</button></a>
+        <button class="btn btn-primary me-2 w-10"   type="button">Download</button>
+          </div>
         </div>
+    </div>
+    </div>   
       </div>
     </div>
   </div>
