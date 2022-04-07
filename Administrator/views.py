@@ -18,6 +18,36 @@ from django.contrib.auth.models import User, auth
 # Create your views here.
 random_otp =gen_otp()
 
+def test(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        emailid = request.POST['emailid']
+        phonenumber = request.POST['phonenumber']
+        projectname = request.POST['projectname']
+        location = request.POST['location']
+        req2 = User_req_ieeeproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+                                                 projectname=projectname, Location=location)
+        req2.save()
+        messages.success(request,'Thank you, Admin will get to you soon')
+    return render(request,'Administrator/ieee2.html')   
+
+def ieee(request):
+    mem = Addnewplatform.objects.all
+    print(mem)
+    if request.method != 'POST':
+        
+        paper = add_new_ieee.objects.filter(selectplatform=mem)
+        context = {'paper': paper}
+        return render(request, 'Administrator/ieee.html', context)
+    else:
+        return render(request, 'Administrator/user dasboard.html')
+
+def ieee2(request):
+    requested_paper=add_new_ieee.objects.all
+    context = {'requested_paper': requested_paper}
+    return render(request, 'Administrator/ieee2.html', context)
+
+
 def abc(request):
     return render(request, 'Administrator/dashboard.html')
 #admin login
@@ -1174,12 +1204,12 @@ def userdash(request):
     c=Course.objects.get(courseid=courseid)
      
     
-    cc=MEDIA_ROOT+ '/' +ca['description']
-    print(cc)
+    #cc=MEDIA_ROOT + '/' +ca['description']
+   # print(cc)
 
-    f1=open(cc,"r")
+    #f1=open(cc,"r")
 
-    a=f1.read()
+    #a=f1.read()
     
     return render(request, 'user/userdash.html', {'l': l,"pl":pl,"ca":ca,"c":c,"a":a})
 

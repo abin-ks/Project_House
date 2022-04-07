@@ -1,5 +1,7 @@
-{% load static %}
+<!DOCTYPE html>
 <html lang="en">
+{% load static %}{% block body %}
+
 <head>
     <meta charset="UTF-8">
     <title>Project House | Final year computer science projects</title>
@@ -168,7 +170,7 @@
                     </div>
                     <div class="col-lg-7 order-lg-1">
                         <div class="p-4">
-                            <a href={% url 'userpythonprojects' i.id %} style="color: #00ADB5;">
+                           
                             <h3 class="display-6" style="color: #00ADB5" >{{ i.platformname }}</h3>
                             <hr>
                         </a>
@@ -180,7 +182,7 @@
                 </div>
             <div class="row">
                 <div class="col-sm-2 col-md-2 col-lg-2 btn11">
-                     <a href={% url 'userpythonprojects' i.id %}>
+                    <a href=/user python projects/>
                         <button style="width: 155px; height: 50px;" type="button" class="btn btnstyl">
                             View Projects
                             <i class="fas fa-arrow-right"></i>
@@ -188,7 +190,7 @@
                     </a>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2 btn12">
-                    <a href="{% url 'view_ieee_papers' i.id %}">
+                    <a href="{% url 'ieee' %}">
                         <button style="width: 165px; height: 50px;" type="button" class="btn btnstyl2">
                             View IEEE papers
                             <i class="fas fa-arrow-right"></i>
@@ -208,7 +210,7 @@
                                         
                     <div class="col-lg-7 order-lg-2">
                         <div class="p-4">
-                            <a href="{% url 'viewtutorial' %}" style="color: #00ADB5;">
+                            <a href="{% url 'test' %}" style="color: #00ADB5;">
                             <h3 class="display-6" style="color: #00ADB5" >Watch Tutorials</h3>
                             <hr>
                         </a>
@@ -441,3 +443,4 @@ animation:blinkingText 1.2s infinite;
         <script src={% static 'js/chat.js' %}></script>
 </body>
 </html>
+{% endblock body%}

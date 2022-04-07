@@ -2,6 +2,7 @@ from django.urls import re_path
 from . import views
 
 urlpatterns = [
+    
     #admin dashboard
     re_path('adminDash/', views.adminDash, name='adminDash'),
     re_path('abc/', views.abc, name='abc'),
@@ -10,6 +11,10 @@ urlpatterns = [
     re_path('admin_login/', views.admin_login, name='admin_login'),
     re_path('adminDash/deleteprofile/<int:id>/', views.deleteprofile,name='deleteprofile'),
 
+    #test
+    re_path('test/', views.test, name='test'),
+    re_path('ieee/', views.ieee, name='ieee'), 
+    re_path('ieee2/', views.ieee2, name='ieee2'),   
     #intership
     re_path('intership/', views.intership, name='intership'),
     #platform 
@@ -53,7 +58,7 @@ urlpatterns = [
     re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
-    re_path('',views.userdashboard, name='userdashboard'),
+    re_path('userdashboard',views.userdashboard, name='userdashboard'),
 
     #add project
     re_path('addproject/', views.addproject, name='addproject'),

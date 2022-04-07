@@ -25,6 +25,8 @@ urlpatterns = [
     re_path('admin/', admin.site.urls),
     re_path('', include('Administrator.urls')),
     re_path(r'^static/(?P<re_path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    re_path(r'^media/(?P<re_path>.*)$', serve,{ 'document_root': settings.MEDIA_ROOT, }),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
