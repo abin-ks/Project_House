@@ -165,7 +165,7 @@ def userdashboard(request):
         platform_name = Addnewplatform.objects.all()
         quest = Q_A.objects.all()
         plat = {'platform_name': platform_name,'quest':quest}
-        return render(request, 'Administrator/user dasboard.html', plat)
+        return render(request, 'Administrator/user_dasboard.html', plat)
 
 #add project
 def addproject(request):
@@ -187,7 +187,7 @@ def userpythonprojects(request, id):
         context = {'projects': project, 'plat': plat}
         return render(request, 'Administrator/user python projects.html', context)
     else:
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
 #idsplay projects on platform on view projects page
 def adminprojectsview(request, id):
@@ -208,7 +208,7 @@ def userandroidprojects(request):
         context = {'projects': project}
         return render(request, 'Administrator/user android projects.html', context)
     else:
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
 #not working
 def usermlprojects(request):
@@ -217,7 +217,7 @@ def usermlprojects(request):
         context = {'projects': project}
         return render(request, 'Administrator/user ml projects.html', context)
     else:
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
 #not working
 def ProjectDiverter(request, name):
@@ -240,7 +240,7 @@ def ProjectDiverter(request, name):
 #display each projects details
 def userviewpython(request, id):
     if request.method == 'POST':
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
     else:
         project = Addnewproject.objects.get(id=id)
@@ -303,7 +303,7 @@ def addnewplatformdb(request):
 #not working
 def viewmlproject(request, id):
     if request.method == 'POST':
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
     else:
         project = Addnewproject.objects.get(id=id)
@@ -314,7 +314,7 @@ def viewmlproject(request, id):
 #not working
 def viewandroidproject(request, id):
     if request.method == 'POST':
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
     else:
         project = Addnewproject.objects.get(id=id)
@@ -482,7 +482,7 @@ def view_ieee_papers(request,id):
         context = {'paper': paper, 'plat': plat}
         return render(request, 'Administrator/view_ieee_papers.html', context)
     else:
-        return render(request, 'Administrator/user dasboard.html')
+        return render(request, 'Administrator/user_dasboard.html')
 
 def ieee_search(request):
     if request.method == 'POST':
