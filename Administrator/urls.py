@@ -64,7 +64,7 @@ urlpatterns = [
     #display projects based on platform
     re_path('userprojects/<int:id>', views.userpythonprojects, name='userpythonprojects'),
 
-    re_path('adminprojectsview/<int:id>', views.adminprojectsview, name='adminprojectsview'),
+    re_path('adminprojectsview/<int:id>/', views.adminprojectsview, name='adminprojectsview'),
 
     #not working
     re_path('userandroidprojects/', views.userandroidprojects, name='userandroidprojects'),
@@ -80,7 +80,7 @@ urlpatterns = [
     re_path('viewprojectdetail/deleteprojects/<int:id>/', views.deleteprojects,name='deleteprojects'),
 
     #save project details
-    re_path('addproject/addnewprojectdb/', views.addnewprojectdb, name='addnewprojectdb'),
+    re_path('addnewprojectdb/', views.addnewprojectdb, name='addnewprojectdb'),
 
     #save platform details
     re_path('platform/addnewplatformdb/', views.addnewplatformdb, name='addnewplatformdb'),

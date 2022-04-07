@@ -272,24 +272,26 @@
                     <!-- Column -->
                     
                     <div class="col-lg-4 col-xlg-3 col-md-6" style="padding-bottom: 5%;" >
+                        {% for i in plat %}
                         <div class="white-box" style="background: white;border-radius: 2rem; margin-left: 5%; height: 100%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
                             <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
-                                {% for i in plat %}
+                                
                                 <li style="margin-top: 1rem;margin-bottom: 1rem;">
 
                                     <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                                    <a href={% url 'adminprojectsview' i.id %} style="color: #00ADB5;">{{ i.platformname }}</a>
+                                    <a href= "/adminprojectsview/{{i.id}}/" style="color: #00ADB5;">{{ i.platformname }}</a>
                                 </li>
-                                 {% endfor %}
+                                
                             </ul></div>
+                            {% endfor %}
                     </div>
 
                     <!-- Column -->
                     <!-- Column -->
                     <div class="col-lg-8 col-xlg-9 col-md-12" style="margin-left: -1%;">
-                        <div class="card" style="background: white; width: 92%; border-radius: 2rem; margin-left: 5%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
-                            <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
-                                    <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
+                        {% comment %} <div class="card" style="background: white; width: 92%; border-radius: 2rem; margin-left: 5%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
+                            <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;"> {% endcomment %}
+                                    {% comment %} <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
                                     {% for x in project %}
                                         <li style="margin-top: 1rem;margin-bottom: 1rem;">
                                             <span class="font-medium" style="margin-left: 0%; color: rgba(0,132,255,0.85);">{{ x.projectname }}</span>
@@ -307,7 +309,7 @@
                                         </li>
                                     {% endfor %}
                                     </ul>
-                                </li>
+                                </li> {% endcomment %}
 
 {#                                <li style="margin-top: 1rem;margin-bottom: 1rem;">#}
 {##}

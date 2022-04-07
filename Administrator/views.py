@@ -190,7 +190,7 @@ def userpythonprojects(request, id):
         return render(request, 'Administrator/user dasboard.html')
 
 #idsplay projects on platform on view projects page
-def adminprojectsview(request, id):
+def adminprojectsview(request,id):
     mem = Addnewplatform.objects.get(id=id).platformname
     print(mem)
     if request.method != 'POST':
@@ -274,8 +274,9 @@ def addnewprojectdb(request):
         uploadscreenshots2 = request.FILES.get('uploadscreenshots2')
         uploadscreenshots3 = request.FILES.get('uploadscreenshots3')
         uploadpdf = request.FILES.get('uploadpdf')
+        print(projectname)
 
-        pro = Addnewproject.objects.create(projectname=projectname,price=price, shortdescription=shortdescription,
+        pro = Addnewproject(projectname=projectname,price=price, shortdescription=shortdescription,
                                            uploadthumbnail=uploadthumbnail,
                                            selectplatform=selectplatform, languageused=languageused,
                                            database=database, softwares=softwares, userinterface=userinterface,
@@ -284,6 +285,7 @@ def addnewprojectdb(request):
                                            uploadscreenshots=uploadscreenshots, uploadscreenshots1=uploadscreenshots1,
                                            uploadscreenshots2=uploadscreenshots2,
                                            uploadscreenshots3=uploadscreenshots3, uploadpdf=uploadpdf)
+        pro.save()
         return redirect('adminDash')
     else:
         return render(request, 'Administrator/dashboard.html')
@@ -383,12 +385,12 @@ def result(request):
 
 #new project request
 def reqprojectss(request):
-    # if 'admin' in request.session:
-    #     req1 = Userrequestproject.objects.all()
-    #     return render(request, 'Administrator/requested_projects.html', {'req': req1})
-    # else:
-    #     return redirect('admin_login')
-    return render(request, 'Administrator/requested_projects.html')
+    if 'admin' in request.session:
+        req1 = Userrequestproject.objects.all()
+        return render(request, 'Administrator/requested_projects.html', {'req': req1})
+    else:
+        return redirect('admin_login')
+    # return render(request, 'Administrator/requested_projects.html')
 
 
 def userreqprojectdb(request):
@@ -513,7 +515,7 @@ def user_req_ieeeprojectdb(request):
 
 def req_ieee(request):
     # if 'admin' in request.session:
-    #     req1 = User_req_ieee.objects.all()
+    #     req1 =  user_req_ieee_projects.objects.all()
     #     return render(request, 'Administrator/req_ieeeproject.html', {'req': req1})
     # else:
     #     return redirect('admin_login')
