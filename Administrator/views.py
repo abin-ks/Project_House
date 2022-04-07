@@ -1124,12 +1124,12 @@ def usercreate(request):
             if password == conformpassword:
                 if usersign.objects.filter(email=email).exists():
                     messages.info(request, 'This email already exists. Sign up again')
-                    return redirect('gosignup')
+                    return redirect('userreg')
                 else:
                     user = usersign.objects.create(fullname=fullname,platformid=platformid, email=email,
                                                     level=level,cno=cno,password=password,score=0)
                     user.save()
-                    return redirect('gologin')
+                    return redirect('userlog')
             else:
                 messages.info(request, 'Password and conform password does not match')
                 return redirect('gosignup')
@@ -1141,6 +1141,10 @@ def usercreate(request):
 def gologin(request):
      
     return render(request, 'user/user_login.html')
+def userlog(request):
+    return render(request,'user/userlog.html')
+def userreg(request):
+    return render(request,'user/userreg.html')
 def gosignup(request):
      pl=Platform.objects.all()  
      c=Course.objects.all()  
@@ -1163,25 +1167,25 @@ def userlogin(request):
 def userdash(request):
 
 
-    #import pdb;
-    #pdb.set_trace()
-    l= usersign.objects.get(sid=request.session['login'])
-    platformid=l.platformid
-    courseid=l.level
-    pl=Platform.objects.get(platformid=platformid)
+    # import pdb;
+    # pdb.set_trace()
+    # l= usersign.objects.get(sid=request.session['login'])
+    # platformid=l.platformid
+    # courseid=l.level
+    # pl=Platform.objects.get(platformid=platformid)
 
-    ca=Course.objects.filter(courseid=courseid).values('description').first()
-    c=Course.objects.get(courseid=courseid)
+    # ca=Course.objects.filter(courseid=courseid).values('description').first()
+    # c=Course.objects.get(courseid=courseid)
      
     
-    cc=MEDIA_ROOT+ '/' +ca['description']
-    print(cc)
+    # cc=MEDIA_ROOT+ '/' +ca['description']
+    # print(cc)
 
-    f1=open(cc,"r")
+    # f1=open(cc,"r")
 
-    a=f1.read()
+    # a=f1.read()
     
-    return render(request, 'user/userdash.html', {'l': l,"pl":pl,"ca":ca,"c":c,"a":a})
+    return render(request, 'user/userdash.html')
 
 def userprofile(request):
     l= usersign.objects.get(sid=request.session['login'])

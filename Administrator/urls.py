@@ -53,7 +53,7 @@ urlpatterns = [
     re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
-    re_path('',views.userdashboard, name='userdashboard'),
+    re_path('userdashboard/',views.userdashboard, name='userdashboard'),
 
     #add project
     re_path('addproject/', views.addproject, name='addproject'),
@@ -205,6 +205,10 @@ urlpatterns = [
 
 
     re_path('gologin/', views.gologin, name='gologin'),
+
+    re_path(r'^userlog$', views.userlog, name='userlog'),
+    re_path(r'^userreg$', views.userreg, name='userreg'),
+
 
 
     re_path('gosignup/', views.gosignup, name='gosignup'),
