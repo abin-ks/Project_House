@@ -1300,7 +1300,11 @@ def plat(request):
     return render(request,'plat.html')
 
 def view_tutorials(request):
-    return render(request, 'user/view_tutorial.html')
 
-def user_view_tutorials(request):
-    return render(request, 'user/user_view_tutorial.html')
+       var =Addnewplatform.objects.all()
+
+       return render(request, 'user/view_tutorial.html',{'var':var})
+
+def user_view(request):
+    vars=Addnewplatform.objects.all()
+    return render(request, 'user/user_view.html',{'vars':vars})

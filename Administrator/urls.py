@@ -226,7 +226,7 @@ urlpatterns = [
     re_path('gonocertificate', views.gonocertificate, name='gonocertificate'),
     re_path('plat/', views.plat, name='plat'),
     re_path('view_tutorials/', views.view_tutorials, name='view_tutorials'),
-    re_path('user_view_tutorials/', views.user_view_tutorials, name='user_view_tutorials'),
+    re_path('user_view/', views.user_view, name='user_view'),
     
     
 ]
