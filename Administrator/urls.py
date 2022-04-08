@@ -71,7 +71,7 @@ urlpatterns = [
     re_path('usermlprojects/', views.usermlprojects, name='usermlprojects'),
 
     #display project details
-    re_path('userviewpython/<int:id>', views.userviewpython, name='userviewpython'),
+    re_path('userviewpython/', views.userviewpython, name='userviewpython'),
     
     #save user request project
     re_path('userreqprojects/userreqprojectdb/', views.userreqprojectdb, name='userreqprojectdb'),
@@ -128,7 +128,9 @@ urlpatterns = [
     re_path('userviewpy/', views.userviewpy, name='userviewpy'),
 
 
-    re_path('user_req_inbuilt_projects/<int:id>', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'),
+    re_path('user_req_inbuilt_projects/', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'), 
+
+    re_path('user_reqinbuilt_project/', views.user_reqinbuilt_project, name='user_reqinbuilt_project'),
 
     re_path('user_req_inbuilt_projectdb/', views.user_req_inbuilt_projectdb, name='user_req_inbuilt_projectdb'),
     

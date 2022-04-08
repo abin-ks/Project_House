@@ -238,15 +238,16 @@ def ProjectDiverter(request, name):
         return page_not_found(request)
 
 #display each projects details
-def userviewpython(request, id):
-    if request.method == 'POST':
-        return render(request, 'Administrator/user dasboard.html')
+def userviewpython(request):
+    # if request.method == 'POST':
+    #     return render(request, 'Administrator/user dasboard.html')
 
-    else:
-        project = Addnewproject.objects.get(id=id)
+    # else:
+    #     project = Addnewproject.objects.get(id=id)
 
-        context = {'projects': project}
-        return render(request, 'Administrator/user view python projects.html', context)
+    #     context = {'projects': project}
+    #     return render(request, 'Administrator/user view python projects.html', context)
+    return render(request, 'Administrator/user view python projects.html')
 
 #delete projects
 def deleteprojects(request, id):
@@ -535,10 +536,14 @@ def user_req_projectdb(request):
 
 
 
-def user_req_inbuilt_projects(request,id):
-    requested_paper=Addnewproject.objects.get(id=id)
-    context = {'requested_paper': requested_paper}
-    return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
+def user_req_inbuilt_projects(request):
+    # requested_paper=Addnewproject.objects.get(id=id)
+    # context = {'requested_paper': requested_paper}
+    # return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
+    return render(request, 'Administrator/user_request_inbuilt_projects.html')
+
+def user_reqinbuilt_project(request): 
+    return render(request, 'Administrator/user_request_inbuiltproject.html') 
 
 def user_req_inbuilt_projectdb(request):
     if request.method == 'POST':
@@ -1301,4 +1306,4 @@ def score1(request):
             return redirect('gonocertificate')
 
 def userviewpy(request):
-     return render(request,'userviewpython.html')
+     return render(request,'Administrator/userviewpython.html')

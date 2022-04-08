@@ -23,103 +23,134 @@
                         <div class="card-body">
 
                               <hr/>
-                        </div>
+                        
                         <form action= "/addnewprojectdb/" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                  {% csrf_token %}
-                        <div class="mobcard">         
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Project Name:</span>
-                    <input type="text" class="inp" name="projectname" placeholder="Enter Project Name" style="margin-left: 70px;width: 50%; float: right;position: relative;bottom: 10px;">
-                </div>
-                <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Price:</span>
-                    <input type="text" class="inp" name="price" placeholder="Enter Project cost" style="margin-left: 70px; width:50%; float: right;">
-                </div>
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <label class="font-medium lab" style="margin-left: 3px;">Enter short description:</label>
-                   <textarea class="form-control inp" rows="5" name="shortdescription" id="shortdescription" style="margin-left: 180px;position: relative;bottom: 34px; width:50%; float: right;"> </textarea>
-                </div>
-                        <br><br><br>
-
-                        <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Select platform:</span>
-                   <select class="form-select inp" name="selectplatform" aria-label="Default select example" style="margin-left: 70px;position: relative;width:50%; float: right; bottom: 30px;">
-                       <option selected>Select platform</option>
-                            {% for i in platformname %}
-                                <option value="{{ i.platformname }}">{{ i.platformname }}</option>
-                                 {% endfor %}
-                   </select></td>
-                       </div>
-                
-                          <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">upload thumbnail:</span>
-                    <input type="file" class="inp" name="uploadthumbnail" placeholder="Enter short description:" style="margin-left: 180px;position:relative;bottom: 24px; float: right;width: 50%;">
-                </div>
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Language used:</span>
-                    <input type="text" class="inp" name="languageused" placeholder="Enter Language used " style="margin-left: 49px;  width:50%; float: right;">
-                </div>
-
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Database:</span>
-                    <input type="text" class="inp" name="database" placeholder="Enter Database " style="margin-left: 90px;  width:50%; float: right;">
-                </div>
-
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Softwares:</span>
-                    <input type="text" class="inp" name="softwares" placeholder="Enter softwares " style="margin-left: 90px; width:50%; float: right;">
-                </div>
-                        <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">User Interfaces:</span>
-                    <input type="text" class="inp" name="userinterface" placeholder="Enter user interface " style="margin-left: 58px; width:50%; float: right;">
-                </div>
-                    <br>
-                             <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Project abstract:</span>
-                   <textarea class="form-control inp" rows="5" name="projectabstract" id="shortdescription" style="margin-left: 180px;position: relative;bottom: 30px; width:50%; float: right;"> </textarea>
-                </div>
-                <br><br><br>
-                                <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Module details:</span>
-                   <textarea class="form-control inp" rows="5" name="moduledetails" id="shortdescription" style="margin-left: 180px;position: relative;bottom: 30px; width:50%; float: right;"> </textarea>
-                </div>
-                        <br><br><br>
-                            <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Upload Video:</span>
-                    <input type="file" class="inp" name="uploadvideo" accept="video/*" style="margin-left: 180px;position:relative;bottom: 20px; width:50%; float: right;">
-                </div>
-
-                              <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <label class="font-medium lab" style="margin-left: 3px;">Upload Screenshots:</label>
-                    <input type="file" class="inp mb-2" name="uploadscreenshots"  style="margin-left: 180px;position:relative;bottom: 28px; width:50%; float: right;">
-                    <input type="file" class="inp mb-2" name="uploadscreenshots1"  style="margin-left: 180px;position:relative;bottom: 28px; width:50%; float: right;">
-                    <input type="file" class="inp mb-2" name="uploadscreenshots2"  style="margin-left: 180px;position:relative;bottom: 28px; width:50%; float: right;">
-                    <input type="file" class="inp mb-2" name="uploadscreenshots3"  style="margin-left: 180px;position:relative;bottom: 28px; width:50%; float: right;">
-                </div>
-                        <br><br><br><br>
-                             <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                    <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                    <span class="font-medium" style="margin-left: 3px;">Upload Pdf:</span>
-                    <input type="file" class="inp"  name="uploadpdf" style="margin-left: 180px;position:relative;bottom: 15px; width:50%; float: right;">
-                </div>
-                      <div class="col-md-12 col-lg-6 p-4" style="margin-left: 10%;">
-                <center><button class="btn btn-primary update" type="submit">Add project</button></center>
-                      </div>
-                      </div>
+                                 <div class="row justify-content-center mt-5">
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
+                                        <span class="font-medium">Project Name:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text" class="inp form-control" name="projectname" placeholder="Enter Project Name">
+                                    </div>
+                    
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16">
+                                        <span class="font-medium">Price:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text " class="inp form-control " name="price " placeholder="Enter Project cost ">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <label class="font-medium lab">Enter short description:</label>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <textarea class="form-control inp " rows="5 " name="shortdescription " id="shortdescription "></textarea>
+                                    </div>
+                                    <br><br><br>
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Select platform:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <select class="form-select inp form-control" name="selectplatform " aria-label="Default select example ">
+                                           <option selected>Select platform</option>
+                                                {% for i in platformname %}
+                                                    <option value="{{ i.platformname }} ">{{ i.platformname }}</option>
+                                                     {% endfor %}
+                                       </select></td>
+                                    </div>
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">upload thumbnail:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="file" class="inp form-control" name="uploadthumbnail " placeholder="Enter short description: ">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Language used:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text " class="inp form-control" name="languageused " placeholder="Enter Language used ">
+                                    </div>
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Database:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text " class="inp form-control" name="database " placeholder="Enter Database ">
+                                    </div>
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Softwares:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text " class="inp form-control" name="softwares " placeholder="Enter softwares">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">User Interfaces:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="text " class="inp form-control" name="userinterface " placeholder="Enter user interface">
+                                    </div>
+                                    <br>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Project abstract:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <textarea class="form-control inp " rows="5 " name="projectabstract " id="shortdescription "> </textarea>
+                                    </div>
+                                    <br><br><br>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Module details:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <textarea class="form-control inp " rows="5 " name="moduledetails " id="shortdescription "> </textarea>
+                                    </div>
+                                    <br><br><br>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Upload Video:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="file" class="inp form-control" name="uploadvideo " accept="video/* ">
+                                    </div>
+                    
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <label class="font-medium lab">Upload Screenshots:</label>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="file" class="inp form-control mb-2 " name="uploadscreenshots ">
+                                        <input type="file" class="inp form-control mb-2 " name="uploadscreenshots1 ">
+                                        <input type="file" class="inp form-control mb-2 " name="uploadscreenshots2 ">
+                                        <input type="file" class="inp form-control mb-2 " name="uploadscreenshots3 ">
+                                    </div>
+                                    <br><br><br><br>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %} " alt="loading " width="16 ">
+                                        <span class="font-medium ">Upload Pdf:</span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <input type="file" class="inp form-control" name="uploadpdf ">
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 grid-margin justify-content-center">
+                                        <center><button type="submit" class="btn btn-outline-primary btn-fw">Add project</button></center>
+                                    </div>
+                                </div>
                         </form>
+                    </div>
 </div>
                     </div>
             </div>
