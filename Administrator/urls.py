@@ -40,23 +40,23 @@ urlpatterns = [
     #projects
 
     #projects mainpage 
-    re_path('projects/', views.projects, name='projects'),
+    re_path(r'^projects$', views.projects, name='projects'),
 
     # display requested projects on admin side
-    re_path('reqprojects/', views.reqprojects, name='reqprojects'),
+    re_path(r'^reqprojects$', views.reqprojects, name='reqprojects'),
     re_path('adminDashboard/reqprojects/', views.reqprojects, name='reqprojects'),
 
     #not working
-    re_path('viewprojects/', views.viewprojects, name='viewprojects'),
+    re_path(r'^viewprojects$', views.viewprojects, name='viewprojects'),
 
     #display platform 
-    re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
+    re_path(r'^viewprojectdetail$', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
-    re_path('',views.userdashboard, name='userdashboard'),
+    re_path(r'^userdashboard$',views.userdashboard, name='userdashboard'),
 
     #add project
-    re_path('addproject/', views.addproject, name='addproject'),
+    re_path(r'^addproject$', views.addproject, name='addproject'),
 
     #request project to admin 
     re_path('userreqprojects/', views.userreqprojects, name='userreqprojects'),
@@ -64,7 +64,7 @@ urlpatterns = [
     #display projects based on platform
     re_path('userprojects/<int:id>', views.userpythonprojects, name='userpythonprojects'),
 
-    re_path('adminprojectsview/<int:id>', views.adminprojectsview, name='adminprojectsview'),
+    re_path(r'^adminprojectsview/(?P<id>\d+)$', views.adminprojectsview, name='adminprojectsview'),
 
     #not working
     re_path('userandroidprojects/', views.userandroidprojects, name='userandroidprojects'),
@@ -77,7 +77,8 @@ urlpatterns = [
     re_path('userreqprojects/userreqprojectdb/', views.userreqprojectdb, name='userreqprojectdb'),
     
     #delete projects
-    re_path('viewprojectdetail/deleteprojects/<int:id>/', views.deleteprojects,name='deleteprojects'),
+    re_path(r'^viewprojectdetail/deleteprojects/(?P<id>\d+)$', views.deleteprojects,name='deleteprojects'),
+    re_path(r'^Intermediate$', views.Intermediate,name='Intermediate'),
 
     #save project details
     re_path('addproject/addnewprojectdb/', views.addnewprojectdb, name='addnewprojectdb'),
