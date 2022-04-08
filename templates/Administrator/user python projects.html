@@ -32,7 +32,7 @@
             <div class="col-lg-3 order-lg-2">
               <div class="p-5">
                 <img
-                  src="{% static 'images/20190903-Python.png' %}"
+                  src="{% static 'images/768px-Python.svg.png' %}"
                   alt="..."
                   width="100%"
                 />
@@ -41,36 +41,31 @@
           </div>
         </div>
       </section>
+    </section id="scroll">
+  </section>
+  <div class="container">
+    <div class="row">
       {% for x in projects %}
-      <section id="scroll">
-        <div class="content-wrapper">
-          <div class="card-columns">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="{{ x.uploadthumbnail }}"
-                alt="..."
-                width="83%"
-              />
-              <div class="card-body">
-                <h2 class="card-title mt-3" style="color: #0cd8eced">
-                  {{ x.projectname }}
-                </h2>
-                <p class="card-text" style="text-align: justify">
-                  {{ x.shortdescription }}
-                </p>
-                <a href="{% url 'viewmlproject' x.id %}">
-                  <button type="button" class="btn btnstyl">
-                    Details
-                    <i class="fas fa-arrow-right" style="margin-left: 1rem"></i>
-                  </button>
-                </a>
-              </div>
-            </div>
+
+      <div class="col-md-4 grid-margin">
+        <div class="card" style="height: 345px; width:300px;">
+          <div class="card-body">
+            <img src="{{ x.uploadthumbnail }}" class="card-img-top p-2" style="width: 250px; "/>
+            <center>
+              <h2 class="card-title">{{ x.projectname }}</h2>
+              <p class="card-text">{{ x.shortdescription }}</p>
+              <a href="#!" class="btn btn-primary">Details</a>
+              <a href="#!" class="btn btn-primary">IEEE Paper</a>                  
+            </center>
           </div>
         </div>
-      </section>
+      </div>
+
+
       {% endfor %}
+    </div>
+  </div>
+</section>
       <!-- Content section 2-->
 
       <!-- Content section 3-->

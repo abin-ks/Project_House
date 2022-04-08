@@ -6,6 +6,39 @@
     box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
   }
 </style>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+  window.onload = function () {
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+    },
+    data: [{        
+      type: "line",
+          indexLabelFontSize: 16,
+      dataPoints: [
+        { y: 450 },
+        { y: 414},
+        { y: 520, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+        { y: 460 },
+        { y: 450 },
+        { y: 500 },
+        { y: 480 },
+        { y: 480 },
+        { y: 410 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+        { y: 500 },
+        { y: 480 },
+        { y: 510 }
+      ]
+    }]
+  });
+  chart.render();
+  
+  }
+  </script>
 <body>
     
 <div class="container">
@@ -73,6 +106,7 @@
 
   <div class="container">
     <div class="row">
+
       <div class="col-md-4 grid-margin">
         <div class="card" style="height: 31vh">
           <div class="card-body">
@@ -131,7 +165,7 @@
         <div class="card" >
           <div class="card-body">
             <h4 class="card-title mb-0 mt-1 pt-0 text-info font-weight-bold">Vistiors Graph</h4>
-            <canvas id="lineChart"></canvas>
+            <div id="chartContainer" style="height: 140px; width: 100%;"></div>
           </div>
         </div>
       </div>
