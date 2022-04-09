@@ -1,0 +1,167 @@
+{% extends 'user/user_base.html' %} {% load static %} {% block body %} {% for j in vars %}
+
+
+
+
+
+<h4 style="position: relative;top: 50px;margin-left: 10%;">
+    {{j.platformname}}
+</h4>
+
+<div class="row justify-content-center">
+
+
+    <div class="card m-5  ">
+        <div class="card-body" style="width: 500px;">
+            <div class="row">
+
+                <div class="col-md-12 ">
+                    <center>
+                        <img src="{{j.uploadthumbnail.url}}" alt="..." style="width: 150px;height: 100px;">
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 ">
+
+                    <label>
+                            {{j.description}}
+                        </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+
+
+<h4 style="position: relative;top: 50px;margin-left: 10%;">
+    tutorials
+</h4>
+{% for k in mem %}
+
+<div class="row justify-content-center">
+
+
+    <div class="card m-5 " style="box-shadow:2px 2px solid black">
+        <div class="card-body" style="width: 500px;">
+            <div class="row">
+
+
+
+
+
+
+                <video src="{{k.tutorial_video.url}}" controls controlsLIst="nodownload" id="videos" width="250" height="200" type="video/mp4" controlsLIst="nodownload">
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 ">
+
+                        <label>
+                            {{k.tutorial_discription}}
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+<style>
+    video::-webkit-media-controls-timeline {
+        display: none;
+    }
+</style>
+
+
+<script>
+
+    var ppbutton = document.getElementById("vidbutton");
+    ppbutton.addEventListener("click", playPause);
+
+    myVideo = document.getElementById("videos");
+    function playPause() {
+        if (myVideo.paused) {
+            myVideo.play();
+            ppbutton.innerHTML = "Pause";
+        }
+        else {
+            myVideo.pause();
+            ppbutton.innerHTML = "Play";
+        }
+    }
+</script>
+
+
+
+<script>
+
+
+
+    var videoSource = new Array();
+    videoSource[0] = '';
+    videoSource[1] = '';
+    videoSource[2] = '';
+    videoSource[3] = '';
+    videoSource[4] = '';
+    let key = 0; // global
+    const videoCount = videoSource.length;
+    const element = document.getElementById("videos");
+
+    function playVideo(videoNum) {
+        element.setAttribute("src", videoSource[videoNum]);
+        element.setAttribute("type", 'video/mp4');
+        element.autoplay = true;
+        element.load();
+        element.play();
+    }
+    document.getElementById('videos').addEventListener('ended', myFunctionHandle, false);
+
+    function myFunctionHandle() {
+        key++;
+        if (key == videoCount) {
+            key = 0;
+            playVideo(key);
+        } else {
+            playVideo(key);
+        }
+    }
+
+
+</script>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="/static/plugins/zoomsl.js"></script>
+
+
+<!-- <script >
+      $('.myimage').imagezoomsl({
+        zoomrange:[1,12],
+        zoomstart:4,
+        innerzoom:true,
+        magnifierborder:'none'
+    
+      });
+    </script> -->
+
+{% endblock %}

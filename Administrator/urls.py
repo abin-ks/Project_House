@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     #admin dashboard
-    re_path('adminDash/', views.adminDash, name='adminDash'),
+    re_path(r'^admindash$', views.admindash, name='admindash'),
     re_path('abc/', views.abc, name='abc'),
 
     #admin login
@@ -11,7 +11,7 @@ urlpatterns = [
     re_path('adminDash/deleteprofile/<int:id>/', views.deleteprofile,name='deleteprofile'),
 
     #intership
-    re_path('intership/', views.intership, name='intership'),
+   
     #platform 
 
     #add platform 
@@ -63,20 +63,26 @@ urlpatterns = [
 
     #display projects based on platform
     re_path('userprojects/<int:id>', views.userpythonprojects, name='userpythonprojects'),
+    
+    re_path(r'^userpy/', views.userpy, name='userpy'),
 
     re_path(r'^adminprojectsview/(?P<id>\d+)$', views.adminprojectsview, name='adminprojectsview'),
+    re_path(r'^adminprojectsviews/(?P<id>\d+)$', views.adminprojectsviews, name='adminprojectsviews'),
 
     #not working
-    re_path('userandroidprojects/', views.userandroidprojects, name='userandroidprojects'),
+    re_path(r'^userandroid/', views.userandroid, name='userandroid'),
     re_path('usermlprojects/', views.usermlprojects, name='usermlprojects'),
+    
+    re_path(r'^userml/', views.userml, name='userml'),
 
     #display project details
-    re_path('userviewpython/<int:id>', views.userviewpython, name='userviewpython'),
+    re_path(r'^userviewpython/(?P<id>\d+)$', views.userviewpython, name='userviewpython'),
     
     #save user request project
     re_path('userreqprojects/userreqprojectdb/', views.userreqprojectdb, name='userreqprojectdb'),
     
     #delete projects
+    re_path(r'^viewprojectdetail/deleteprojectss/(?P<id>\d+)$', views.deleteprojectss,name='deleteprojectss'),
     re_path(r'^viewprojectdetail/deleteprojects/(?P<id>\d+)$', views.deleteprojects,name='deleteprojects'),
     re_path(r'^Intermediate$', views.Intermediate,name='Intermediate'),
 
@@ -102,9 +108,9 @@ urlpatterns = [
     #not working
     re_path('result/', views.result, name='result'),
 
-    re_path('getproject/<int:id>', views.getproject, name='getproject'),
+    re_path(r'^getproject/(?P<id>\d+)$', views.getproject, name='getproject'),
     re_path('show_inbuiltproject_requests/', views.show_inbuiltproject_requests, name='show_inbuiltproject_requests'),
-
+    re_path('user_show_ieeeproject/', views.user_show_ieeeproject, name='user_show_ieeeproject'),
     #search projects
     re_path('search/',views.search,name='search'),
 
@@ -115,6 +121,9 @@ urlpatterns = [
     re_path('add_ieee', views.add_ieee, name='add_ieee'),
 
     re_path('add_ieee_db', views.add_ieee_db, name='add_ieee_db'),
+    
+    re_path(r'^view_tutorials$', views.view_tutorials, name='view_tutorials'),
+    re_path(r'^user_views/', views.user_views, name='user_views'),
 
     re_path(r'^view_ieee_papers/(?P<id>\d+)$', views.view_ieee_papers, name='view_ieee_papers'),
 
@@ -126,9 +135,9 @@ urlpatterns = [
 
     re_path('req_ieeeprojects/', views.req_ieeeprojects, name='req_ieeeprojects'),
 
-    re_path('user_req_inbuilt_projects/<int:id>', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'),
+    re_path(r'^user_req_inbuilt_projectss/(?P<id>\d+)$', views.user_req_inbuilt_projectss, name='user_req_inbuilt_projectss'),
 
-    re_path('user_req_inbuilt_projectdb/', views.user_req_inbuilt_projectdb, name='user_req_inbuilt_projectdb'),
+    re_path(r'^user_req_inbuilt_projectdbs$', views.user_req_inbuilt_projectdbs, name='user_req_inbuilt_projectdbs'),
     
     re_path('userintership/', views.userintership, name='userintership'),
 
@@ -174,7 +183,7 @@ urlpatterns = [
     #courses module
     re_path('courses/', views.courses, name='courses'),
     #Platform
-    re_path('platforms/', views.platforms, name='platforms'),
+    re_path(r'^platforms$', views.platforms, name='platform'),
     re_path('addplatform/', views.addplatform, name='addplatform'),
     re_path('addplatforms/', views.addplatforms, name='addplatforms'),
     re_path('editplatform/<int:platformid>', views.editplatform, name='editplatform'),
@@ -226,6 +235,10 @@ urlpatterns = [
     re_path('gocertificate', views.gocertificate, name='gocertificate'),
     re_path('gonocertificate', views.gonocertificate, name='gonocertificate'),
     
-    
+    re_path(r'^intership$', views.intership, name='intership'),
+
+#user module
+    re_path(r'^userlog$', views.userlog, name='userlog'),
+    re_path(r'^userreg$', views.userreg, name='userreg'),
     
 ]

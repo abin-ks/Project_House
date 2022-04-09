@@ -83,8 +83,10 @@ class Addnewproject(models.Model):
 
 class Addnewplatform(models.Model):
     platformname = models.CharField(max_length=100)
-    uploadthumbnail = models.ImageField(upload_to="images/", default='')
+    uploadthumbnail = models.FileField( upload_to="images/",null=True,blank=True)
     description = models.CharField(max_length=300)
+    tutorial_discription = models.CharField(max_length=300)
+    tutorial_video = models.FileField(upload_to='videos/', default='')
 
     @property
     def newplat(self):

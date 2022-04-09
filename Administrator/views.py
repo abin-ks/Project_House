@@ -63,18 +63,19 @@ def intership(request):
         return redirect('admin_login')
 #admin  after login or admin Dashboard
 
-def adminDash(request):
+def admindash(request):  # dashboard
     if 'admin' in request.session:
         pro = profile.objects.all()
-        project = Addnewproject.objects.all().count()
+        project = Addnewproject.objects.all()
         platform = Addnewplatform.objects.all().count()
         proreq = Userrequestproject.objects.all().count()
         requestedpro = User_req_inbuilt_project.objects.all().count()
         return render(request, 'Administrator/dashboard.html',
-                              {'profile': pro, 'project': project, 'platform': platform, 'proreq': proreq,
+                      {'profile': pro, 'projects': project, 'platform': platform, 'proreq': proreq,
                                'requestedpro': requestedpro})
     else:
         return redirect('admin_login')
+
 #platform
 
 #add platform
@@ -201,14 +202,32 @@ def adminprojectsview(request, id):
     else:
         return render(request, 'Administrator/dashboard.html')
 
-#not working
-def userandroidprojects(request):
+def adminprojectsviews(request, id):
+    mem = Addnewplatform.objects.get(id=id).platformname
+    print(mem)
     if request.method != 'POST':
-        project = Addnewproject.objects.filter(selectplatform='Android')
-        context = {'projects': project}
-        return render(request, 'Administrator/user android projects.html', context)
+        plat = Addnewplatform.objects.all()
+        project = Addnewproject.objects.filter(selectplatform=mem)
+       
+        return render(request, 'Administrator/view projects detail.html', {'plat':plat,'project':project})
     else:
-        return render(request, 'Administrator/user_dasboard.html')
+        return render(request, 'Administrator/dashboard.html')
+
+#not working
+def userml(request):  # userprojects
+    project = Addnewproject.objects.filter(selectplatform='Machine Learning')
+    context = {'projects': project}
+    return render(request, 'Administrator/user ml projects.html', context)
+
+def userpy(request):  # userprojects
+    project = Addnewproject.objects.filter(selectplatform='Python')
+    context = {'projects': project}
+    return render(request, 'Administrator/user python projects.html', context)
+
+def userandroid(request):  # userprojects
+    project = Addnewproject.objects.filter(selectplatform='Android')
+    context = {'projects': project}
+    return render(request, 'Administrator/user android projects.html', context)
 
 #not working
 def usermlprojects(request):
@@ -240,7 +259,7 @@ def ProjectDiverter(request, name):
 #display each projects details
 def userviewpython(request, id):
     if request.method == 'POST':
-        return render(request, 'Administrator/user_dasboard.html')
+        return render(request, 'Administrator/user dasboard.html')
 
     else:
         project = Addnewproject.objects.get(id=id)
@@ -250,6 +269,11 @@ def userviewpython(request, id):
 
 #delete projects
 def deleteprojects(request, id):
+    dela = Addnewproject.objects.get(id=id)
+    dela.delete()
+    return redirect('adminDash')
+
+def deleteprojectss(request, id):
     dela = Addnewproject.objects.get(id=id)
     dela.delete()
     return redirect('adminDash')
@@ -385,39 +409,36 @@ def result(request):
         return page_not_found(request)
 
 #new project request
+def reqprojectss(request):
+    if 'admin' in request.session:
+        req1 = Userrequestproject.objects.all()
+        return render(request, 'Administrator/requested_projects.html', {'req': req1})
+    else:
+        return redirect('admin_login')
+    # return render(request, 'Administrator/requested_projects.html')
+
 def reqprojects(request):
     if 'admin' in request.session:
         req1 = Userrequestproject.objects.all()
-        return render(request, 'Administrator/requested projects.html', {'req': req1})
+        return render(request, 'Administrator/requested_projects.html', {'req': req1})
     else:
         return redirect('admin_login')
 
 
 def userreqprojectdb(request):
     if request.method == 'POST':
-        try:
-            name = request.POST['name']
-            emailid = request.POST['emailid']
-            phonenumber = request.POST['phonenumber']
-            projectname = request.POST['projectname']
-            projectdescription = request.POST['projectdescription']
-            project_zip = request.FILES['project_files']
-            req2 = Userrequestproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
-                                                 projectname=projectname, projectdescription=projectdescription,project_file=project_zip)
-            req2.save()
-            messages.success(request,'Thank you, Admin will get to you soon')
-            return redirect('userreqprojects')
-        except:
-            name = request.POST['name']
-            emailid = request.POST['emailid']
-            phonenumber = request.POST['phonenumber']
-            projectname = request.POST['projectname']
-            projectdescription = request.POST['projectdescription']
-            req2 = Userrequestproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
-                                                     projectname=projectname, projectdescription=projectdescription)
-            req2.save()
-            messages.success(request, 'Thank you, Admin will get to you soon')
-            return redirect('userreqprojects')
+        
+        name = request.POST['name']
+        emailid = request.POST['emailid']
+        phonenumber = request.POST['phonenumber']
+        projectname = request.POST['projectname']
+        projectdescription = request.POST['projectdescription']
+        project_zip = request.FILES['project_files']
+        req2 = Userrequestproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+                                                projectname=projectname, projectdescription=projectdescription,project_file=project_zip)
+        req2.save()
+        messages.success(request,'Thank you, Admin will get to you soon')
+        return redirect('userreqprojects')
 
 
 def userreqprojects(request):
@@ -441,6 +462,17 @@ def show_inbuiltproject_requests(request):
     spro = User_req_inbuilt_project.objects.all()
     return render(request, 'Administrator/getreq_inbuiltprojects.html', {'spo': spro})
 
+def user_show_ieeeproject(request):
+    spro = User_req_ieeeproject.objects.all()
+    return render(request, 'Administrator/user_show_ieeeproject.html', {'spo': spro})
+
+def req_ieee(request):
+    # if 'admin' in request.session:
+    #     req1 =  user_req_ieee_projects.objects.all()
+    #     return render(request, 'Administrator/req_ieeeproject.html', {'req': req1})
+    # else:
+    #     return redirect('admin_login')
+    return render(request, 'Administrator/req_ieeeproject.html')
 
 def main_ieee(request):
     if 'admin' in request.session:
@@ -528,19 +560,31 @@ def user_req_projectdb(request):
         phonenumber = request.POST['phonenumber']
         projectname = request.POST['projectname']
         location = request.POST['location']
-        req2 = User_req_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+        req2 = User_req_inbuilt_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
                                                  projectname=projectname, Location=location)
         req2.save()
     return redirect('userdashboard')
 
 
-
-def user_req_inbuilt_projects(request,id):
+def user_req_inbuilt_projectss(request,id):
     requested_paper=Addnewproject.objects.get(id=id)
     context = {'requested_paper': requested_paper}
     return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
 
 def user_req_inbuilt_projectdb(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        emailid = request.POST['emailid']
+        phonenumber = request.POST['phonenumber']
+        projectname = request.POST['projectname']
+        location = request.POST['location']
+        req2 = User_req_inbuilt_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+                                                 projectname=projectname, Location=location)
+        req2.save()
+        messages.success(request,'Thank you, Admin will get to you soon')
+    return render(request,'Administrator/user_request_inbuilt_projects.html')
+
+def user_req_inbuilt_projectdbs(request):
     if request.method == 'POST':
         name = request.POST['name']
         emailid = request.POST['emailid']
@@ -817,10 +861,38 @@ def courses(request):
 
 def platforms(request):
     if 'admin' in request.session:
-        plat = Platform.objects.all()
-        return render(request, 'Administrator/platforms.html', {'platform': plat})
+        if request.method == 'POST':
+            mem3 = Addnewplatform()
+            mem3.platformname= request.POST['platform_name']
+            mem3.uploadthumbnail = request.FILES['upload_img']
+            mem3.description = request.POST['platform_description']
+            mem3.tutorial_discription = request.POST['tutorial_discription']
+            mem3.tutorial_video= request.FILES['tutorial_video']
+
+            
+
+            mem3.save()
+        return render(request, 'administrator/platforms.html')
     else:
         return redirect('admin_login')
+
+def view_tutorials(request):
+    
+       var =Addnewplatform.objects.all()
+
+       return render(request, 'user/view_tutorial.html',{'var':var})
+
+def user_views(request):
+    if request.method == 'POST':
+
+        tut = request.POST['selectplatform']
+        vars=Addnewplatform.objects.filter(id=tut)
+        vars1=Addnewplatform.objects.get(id=tut)
+        mem=Addnewplatform.objects.filter(platformname=vars1.platformname)
+        
+
+        return render(request, 'user/user_view.html',{'vars':vars,'mem':mem})
+    # return render(request, 'user/user_view.html',{'vars':vars})
 
 
 def addplatform(request):
@@ -1127,17 +1199,20 @@ def usercreate(request):
             if password == conformpassword:
                 if usersign.objects.filter(email=email).exists():
                     messages.info(request, 'This email already exists. Sign up again')
-                    return redirect('gosignup')
+                    return redirect('userreg')
                 else:
                     user = usersign.objects.create(fullname=fullname,platformid=platformid, email=email,
                                                     level=level,cno=cno,password=password,score=0)
                     user.save()
-                    return redirect('gologins')
+                    return redirect('userlog')
             else:
                 messages.info(request, 'Password and conform password does not match')
-                return redirect('gosignup')
+                return redirect('userreg')
             
-    
+def userlog(request):
+    return render(request,'user/userlog.html')
+def userreg(request):
+    return render(request,'user/userreg.html')
 
 
 
@@ -1162,12 +1237,12 @@ def userlogin(request):
                 
             else:
                 messages.error(request, 'Invalid Email Id or Password.')
-                return render(request, 'user/user_login.html')
+                return render(request, 'user/userlog.html')
 def userdash(request):
+    
 
-
-    #import pdb;
-    #pdb.set_trace()
+    # import pdb;
+    # pdb.set_trace()
     l= usersign.objects.get(sid=request.session['login'])
     platformid=l.platformid
     courseid=l.level
@@ -1177,14 +1252,16 @@ def userdash(request):
     c=Course.objects.get(courseid=courseid)
      
     
-    cc=MEDIA_ROOT+ '/' +ca['description']
-    print(cc)
+    # cc=MEDIA_ROOT+ '/' +ca['description']
+    # print(cc)
 
-    f1=open(cc,"r")
+    # f1=open(cc,"r")
 
-    a=f1.read()
+    # a=f1.read()
     
-    return render(request, 'user/userdash.html', {'l': l,"pl":pl,"ca":ca,"c":c,"a":a})
+    return render(request, 'user/userdash.html',{'pl':pl,'c':c,'ca':ca,'l':l})
+#, {'l': l,"pl":pl,"ca":ca,"c":c,"a":a}
+
 
 def userprofile(request):
     l= usersign.objects.get(sid=request.session['login'])

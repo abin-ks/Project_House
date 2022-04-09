@@ -1,4 +1,4 @@
-{% extends 'adm_base.html' %}{% load static %}
+{% extends 'Administrator/adm_base.html' %}{% load static %}
 <html dir="ltr" lang="en">
 
 {% block body %}
@@ -33,7 +33,7 @@
 
     <div class="col-lg-4 col-xlg-3 col-md-6 col-12" style="padding-bottom: 5%;">
         {% for i in plat %}
-        <div class="card mb-3 p-3" style="background: white;border-radius: 1rem; height: 50%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
+        <div class="card mb-3 p-3 h-50" style="background: white;border-radius: 1rem; height: 50%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
             <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
 
                 <li style="margin-top: 1rem;margin-bottom: 1rem;">
@@ -50,40 +50,45 @@
     <!-- Column -->
     <!-- Column -->
     <div class="col-lg-8 col-xlg-9 col-md-12 col-12 mb-5 pt-3">
+        {% for x in project %}
         <div class="card mb-3 pt-3" style="background: white; width: 100%; border-radius: 1rem;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         <ul class="align-items-center mb-0" style="list-style-type:none; margin-top: 1rem;">
 
-                            {% for x in project %}
+
                             <li style="margin-top: 1rem;margin-bottom: 1rem;">
                                 <span class="font-medium" style="margin-left: 0%; color: rgba(0,132,255,0.85);">{{ x.projectname }}</span>
-                                <a href="{% url 'deleteprojects' x.id  %}">
-                                    <img src="{% static 'plugins/images/Icon-material-delete.png' %}" alt="loading" width="16" style="margin-left:80%;">
-                                </a>
-
-                                <hr>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                        <ul class="list-inline two-part d-flex align-items-center mb-0">
-                            <li><img src={{ x.url.uploadthumbnail }} alt="loading" height="100px" width="100px"></li>
-                            <li style="margin-left: 1rem; margin-right: 1rem;">
-                                <p style="text-align: justify;"></p>
-                                <div class="break-all">
-                                    {{ x.shortdescription }}
-                                </div>
-                            </li>
-                        </ul>
-                        </li>
-                        {% endfor %}
-                        </ul>
+                        <a href="{% url 'deleteprojects' x.id  %}">
+                            <img src="{% static 'plugins/images/Icon-material-delete.png' %}" alt="loading" width="16" style="margin-left:80%;">
+                        </a>
+
+                        <hr>
                     </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li><img src={{ x.url.uploadthumbnail }} alt="loading" height="100px" width="100px"></li>
+                        <li style="margin-left: 1rem; margin-right: 1rem;">
+                            <p style="text-align: justify;"></p>
+                            <div class="break-all">
+                                {{ x.shortdescription }}
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    <!-- Column -->
+</div>
+<!-- Column -->
 </div>
 
 <!-- End Wrapper -->
