@@ -10,8 +10,7 @@ urlpatterns = [
     re_path('admin_login/', views.admin_login, name='admin_login'),
     re_path('adminDash/deleteprofile/<int:id>/', views.deleteprofile,name='deleteprofile'),
 
-    #test
-    re_path('ieee/', views.ieee, name='ieee'),   
+  
     #intership
     re_path('intership/', views.intership, name='intership'),
     #platform 

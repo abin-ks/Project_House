@@ -118,4 +118,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_URL='/Administrator/admin_login'
+LOGIN_REDIRECT_URL='/Administrator/admin_login'
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS= True
+EMAIL_PORT = 587
+EMAIL_HOST_USER='c0d3tester.92@gmail.com'
+EMAIL_HOST_PASSWORD='DjangoTester123'

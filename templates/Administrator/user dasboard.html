@@ -1,12 +1,8 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
-{% load static %}{% block body %}
-
 <head>
     <meta charset="UTF-8">
-    <title>Project House | Final year computer science projects</title>
-    <meta name="description" content="Project house is a warehouse of more than 100+ computer science projects in all platforms. Project house also helps to identify free internships and job training facility.">
-    <link rel="canonical" href="https://projecthouse.store/"/>
+    <title>Project House</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/469ce4321a.js" crossorigin="anonymous"></script>
     <link href="{% static 'css/style6.css' %}" rel="stylesheet">
@@ -98,9 +94,7 @@
         }
 
         
-   </style>
-    <meta name="google-site-verification" content="Y9uQV09ceEoDfoFTXANrLsOqVkzspiOH9yk0qBkpVZ8" />
-    <!--<meta name="keywords"content="final year projects,Projects for computer science,Project topics for final years,Computer science projects examples,Python projects,Android projects,Unity projects,php projects,Asp.net projects,Java projects,Student internships,Free job training.”>-->
+    </style>
 </head>
 <body>
     <header style="background-image: url('{% static "images/6777876-blue-abstract-photos.png" %}');width: 100%; height: 380px;">
@@ -117,8 +111,6 @@
                     <li style="position: relative;bottom: 11px; margin-bottom: 150px;margin-left: 0px;font-weight: normal;font-max-size: large;"><a href="{% url 'userreqprojects' %}">Send project ideas</a></li>
                         <li style="position: relative;bottom: 11px; margin-bottom: 150px;margin-left: 0px;font-weight: normal;font-max-size: large;"><a href="{% url 'userintership' %}">Apply for internships</a></li>
                         <li style="position: relative;bottom: 11px; margin-bottom: 150px;margin-left: 0px;font-weight: normal;font-max-size: large;"><a href="{% url 'usermockexam' %}">Take mock exam</a></li>
-                        <li style="position: relative;bottom: 11px; margin-bottom: 150px;margin-left: 0px;font-weight: normal;font-max-size: large;"><a href="{% url 'gologin' %}">Login</a></li>
-                        <li style="position: relative;bottom: 11px; margin-bottom: 150px;margin-left: 0px;font-weight: normal;font-max-size: large;"><a href="{% url 'gosignup' %}">Registration</a></li>
 
                     </ul>
             </div>
@@ -170,7 +162,7 @@
                     </div>
                     <div class="col-lg-7 order-lg-1">
                         <div class="p-4">
-                           
+                            <a href={% url 'userpythonprojects' i.id %} style="color: #00ADB5;">
                             <h3 class="display-6" style="color: #00ADB5" >{{ i.platformname }}</h3>
                             <hr>
                         </a>
@@ -182,7 +174,7 @@
                 </div>
             <div class="row">
                 <div class="col-sm-2 col-md-2 col-lg-2 btn11">
-                    <a href=/user python projects/>
+                     <a href={% url 'userpythonprojects' i.id %}>
                         <button style="width: 155px; height: 50px;" type="button" class="btn btnstyl">
                             View Projects
                             <i class="fas fa-arrow-right"></i>
@@ -190,7 +182,7 @@
                     </a>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2 btn12">
-                    <a href="{% url 'ieee' %}">
+                    <a href="{% url 'view_ieee_papers' i.id %}">
                         <button style="width: 165px; height: 50px;" type="button" class="btn btnstyl2">
                             View IEEE papers
                             <i class="fas fa-arrow-right"></i>
@@ -210,7 +202,7 @@
                                         
                     <div class="col-lg-7 order-lg-2">
                         <div class="p-4">
-                            <a href="{% url 'test' %}" style="color: #00ADB5;">
+                            <a href="{% url 'viewtutorial' %}" style="color: #00ADB5;">
                             <h3 class="display-6" style="color: #00ADB5" >Watch Tutorials</h3>
                             <hr>
                         </a>
@@ -316,70 +308,9 @@ animation:blinkingText 1.2s infinite;
 
     <hr>
         <!-- Footer-->
-        <!--<footer class="py-5 bg-black">
+        <footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2021</p></div>
-        </footer>-->
-        <footer id="footer"style="background-color: #1B262C">
-       <div class="container >
-           <!-- Footer Links -->
-           <div class="container text-center text-md-left ">
-               <!-- Grid row -->
-               <div class="row mt">
-                   <!-- Grid column -->
-                  <!-- <div class="col-md-12 col-lg-8 col-xl-2 mx-auto mb-4" style="margin-top:5%;">
-                       
-                       <img srcset="{% static 'infox.png' %}" alt="responsive image" class="d-block img-fluid" style="align-content: center;margin: auto;">
-                    </div>-->
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-12 col-lg-12 col-xl-12 mx-auto mb-4" style="margin-top:6%;">
-                        <h1  style="font-size: 150%;color: white;">Contact information</h1>
-                        <p style="color:white;">
-                        Indian Address:<br>
-                        Heavenly Plaza<br>
-                    13<sup>th</sup> floor
-                        Vazhakkala Kochi<br>
-                        
-                        Kerala<br>
-                        Pin :682021<br>
-                        phone: +91 7736071987
-                  
-                        </p>
-  
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <!--<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" style="margin-top:12%;">
-                          <p style="color:white;font-size: 15px;">
-                            USA Address<br>
-                            INFOX Technologies
-                            615 ST George Square Court
-                            Winston-Salem, North Carolina
-                            United States Of America
-                            Phone:+001 336-5461805
-                          </p>
-  
-  
-                     </div>-->
-                      <!-- Grid column -->
-                  
-                      <!-- Grid column -->
-                     <!-- <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="margin-top:16%;">
-                          <p style="color:white;">
-                               Email:hr@infoxtechnologies.com <br>
-                               Web:infoxtechnologies.com
-                              </p>
-                        </div>-->
-                        <!-- Grid column -->
-  
-                </div>
-                <!-- Grid row -->
-            </div>
-  <!-- Footer Links -->
-  
-  
-  
-  </footer>
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -443,4 +374,3 @@ animation:blinkingText 1.2s infinite;
         <script src={% static 'js/chat.js' %}></script>
 </body>
 </html>
-{% endblock body%}
