@@ -1,21 +1,10 @@
-<<<<<<< HEAD
 {% extends 'user/user_base.html' %} {% load static %} {% block body %}
-=======
-{% extends 'user/user_base.html' %} 
-{% load static %} 
-{% block body %}
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Project House | Final year computer science projects</title>
-<<<<<<< HEAD
     <meta name="description" content="Project house is a warehouse of more than 100+ computer science projects in all platforms. Project house also helps to identify free internships and job training facility.">
-=======
-    <meta name="description"
-        content="Project house is a warehouse of more than 100+ computer science projects in all platforms. Project house also helps to identify free internships and job training facility.">
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
     <link rel="canonical" href="https://projecthouse.store/" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/469ce4321a.js" crossorigin="anonymous"></script>
@@ -28,11 +17,7 @@
             border: 0px solid;
             color: #CCC;
         }
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
         .btnstyl {
             margin-left: 0%;
             margin-bottom: 1rem;
@@ -41,11 +26,7 @@
             color: black;
             border-radius: 1rem;
         }
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
         .btnstyl2 {
             margin-left: 0%;
             margin-bottom: 1rem;
@@ -54,7 +35,6 @@
             color: black;
             border-radius: 1rem;
         }
-<<<<<<< HEAD
         
         .btn11 {
             margin-left: 20px;
@@ -65,18 +45,6 @@
         }
         
         @media screen and (max-width: 1400px) {
-=======
-
-        .btn11 {
-            margin-left: 20px;
-        }
-
-        .btn12 {
-            margin-left: 0px;
-        }
-
-        @media screen and (max-width:1400px) {
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
             .btnstyl {
                 margin-left: 0%;
                 margin-bottom: 1rem;
@@ -85,10 +53,6 @@
                 color: black;
                 border-radius: 1rem;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
             .btnstyl2 {
                 margin-left: 0%;
                 margin-bottom: 1rem;
@@ -97,26 +61,14 @@
                 color: black;
                 border-radius: 1rem;
             }
-<<<<<<< HEAD
             .btn11 {
                 margin-left: 20px;
             }
-=======
-
-            .btn11 {
-                margin-left: 20px;
-            }
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
             .btn12 {
                 margin-left: 0px;
             }
         }
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
         @media only screen and (max-device-width: 990px) {
             .btnstyl {
                 margin-left: 0%;
@@ -126,10 +78,6 @@
                 color: black;
                 border-radius: 1rem;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
             .btnstyl2 {
                 margin-left: 0%;
                 margin-bottom: 1rem;
@@ -138,7 +86,6 @@
                 color: black;
                 border-radius: 1rem;
             }
-<<<<<<< HEAD
             .btn11 {
                 margin-left: 10%;
             }
@@ -156,90 +103,20 @@
                 width: 100%;
             }
         }
-=======
-
-            .btn11 {
-                margin-left: 10%;
-            }
-
-            .btn12 {
-                margin-left: 30%;
-            }
-
-            .homethumbnail {
-                margin-left: 33%;
-            }
-        }
-
-        .break-all {
-            word-break: break-word;
-        }
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
     </style>
     <meta name="google-site-verification" content="Y9uQV09ceEoDfoFTXANrLsOqVkzspiOH9yk0qBkpVZ8" />
     <!--<meta name="keywords"content="final year projects,Projects for computer science,Project topics for final years,Computer science projects examples,Python projects,Android projects,Unity projects,php projects,Asp.net projects,Java projects,Student internships,Free job training.”>-->
 </head>
 
 <body>
-<<<<<<< HEAD
 
-=======
-    <header style="background-image: url('{% static 'images/6777876-blue-abstract-photos.png' %}');">
-        <div>
-            <div style="margin-top: 2rem;margin-bottom: 2rem;">
-                <h6 style="color: white; font-family: sans-serif; font-style: oblique; text-align: center;">Find your
-                    best projects for your academics from here</h6>
-            </div>
-            <div class="col-md-4 col-sm-4 mb-4 col-lg-4"
-                style="position: relative; top: 40%;margin-left: 33%; margin-right: 20%;">
-
-
-                <form method="POST" action="{% url 'search' %}">
-                    {% csrf_token %}
-                    <div class="input-group md-form form-sm form-2 pl-0 searchbox"
-                        style="box-shadow: rgb(6 209 241) -7px 0px 33px; background: white;border-radius: 0.6rem;margin-bottom: 2rem;height: 35px; text-align: center;">
-                        <input class="form-control my-0 py-1 amber-border " id="searchbar" type="text" name="search"
-                            placeholder="Search" aria-label="Search" style=" margin-left: 1rem;height: 35px; "
-                            required="">
-                        <div class="input-group-append"
-                            style="width: 20%;margin-right: 2%;margin-top: 2%;margin-bottom: 2%;margin-left: 2%; padding-bottom: 2%; padding-top: 2%;">
-                            <button class="btn btn" type="submit" id="srcbtn"
-                                style="bottom: .0001vh; left: 87%; background: rgb(6 209 241); width: 50%;border-radius: 50px;position: absolute; width: 80px; height: 35px;">
-                                <i class="fas fa-search" style="margin-left: 10%;"></i>
-                            </button>
-                        </div>
-                        <p id="values"></p>
-                    </div>
-                </form>
-                <div class="search-result" id="search-result"
-                    style="background: rgb(6 209 241/ 53%);margin-top: 0.25rem;border-radius: 0.5rem;position: absolute;display: none;">
-
-                    <ul id="search-result-list" style="list-style-type: none; "></ul>
-                    <style>
-                        a {
-                            color: white;
-                            text-decoration: none;
-                        }
-                    </style>
-                    {#
-                    <a href="#" id="result-link"></a>#}
-                </div>
-            </div>
-        </div>
-    </header>
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
     {% for i in platform_name %}
     <section>
         <div class="container px-5" style="text-align: left;">
             <div class="row gx-5 align-items-center justify-content-center">
                 <div class="col-lg-5 order-lg-2">
                     <div class="p-5">
-<<<<<<< HEAD
                         <img class="homethumbnail" src="{{ i.uploadthumbnail.url }}" alt="..." style="width: 150px;height: auto;" />
-=======
-                        <img class="homethumbnail" src="{{ i.uploadthumbnail.url }}" alt="..."
-                            style="width: 150px;height: auto;" />
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                     </div>
                 </div>
                 <div class="col-lg-7 order-lg-1">
@@ -264,7 +141,7 @@
                     </a>
                 </div>
                 <div class="col-sm-2 col-md-2 col-lg-2 btn12">
-                    <a href="{% url 'view_ieee_papers'  %}">
+                    <a href="{% url 'view_ieee_papers' i.id %}">
                         <button style="width: 165px; height: 50px;" type="button" class="btn btnstyl2">
                             View IEEE papers
                             <i class="fas fa-arrow-right"></i>
@@ -274,7 +151,6 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
     {% endfor %}<br>
     <div class="container" style="text-align: left;">
         <div class="row gx-5 align-items-center justify-content-center">
@@ -289,23 +165,6 @@
                     <a href="{% url 'viewtutorial' %}" style="color: #00ADB5;">
                         <h3 class="display-6" style="color: #00ADB5">Watch Tutorials</h3>
                         <hr/>
-=======
-    {% endfor %}
-    <div class="container px-5" style="text-align: left;">
-        <div class="row gx-5 align-items-center justify-content-center">
-            <div class="col-lg-5 order-lg-3">
-                <div class="p-5">
-                    <img class="homethumbnail" src="{% static 'images/tutorial.png' %}" alt="..."
-                        style="width: 150px;height: auto;" />
-                </div>
-            </div>
-
-            <div class="col-lg-7 order-lg-2">
-                <div class="p-4">
-                    <a href="{% url 'viewtutorial' %}" style="color: #00ADB5;">
-                        <h3 class="display-6" style="color: #00ADB5">Watch Tutorials</h3>
-                        <hr>
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                     </a>
                     <div class="break-all">
                         <p>Want to learn any programming language watch our latest programming tutorials.</p>
@@ -319,36 +178,22 @@
 
     <div class="container px-5 px-xl-0" style="text-align: left;">
         <div class="row align-items-center justify-content-center d-lg-block">
-<<<<<<< HEAD
             <div class="col-lg-7 col-12">
                 <br>
                 <a href="{% url 'userintership' %}">
                     <div>
                         <span class="blinking" style="font-family:Georgia, 'Times New Roman', Times, serif;font-size: 20px;margin-left: 10%;">Need
-=======
-            <div class="col-lg-7">
-                <br>
-                <a href="{% url 'userintership' %}">
-                    <div>
-                        <span class="blinking"
-                            style="font-family:Georgia, 'Times New Roman', Times, serif;font-size: 20px;margin-left: 10%;">Need
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                             Internship in Multi-National Companies ?</span>
                 </a>
                 <style>
                     .blinking {
                         animation: blinkingText 1.2s infinite;
                     }
-<<<<<<< HEAD
                     
-=======
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                     @keyframes blinkingText {
                         0% {
                             color: #0000FF;
                         }
-<<<<<<< HEAD
                         49% {
                             color: #0000FF;
                         }
@@ -358,27 +203,11 @@
                         99% {
                             color: transparent;
                         }
-=======
-
-                        49% {
-                            color: #0000FF;
-                        }
-
-                        60% {
-                            color: transparent;
-                        }
-
-                        99% {
-                            color: transparent;
-                        }
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                         100% {
                             color: #0000FF;
                         }
                     }
                 </style>
-<<<<<<< HEAD
                 </div>
 
 
@@ -448,88 +277,11 @@
 
         </div>
     </div>
-=======
-            </div>
-
-
-        </div>
-    </div>
-    <div class="container px-0 px-xl-5" style="text-align: left;">
-        <div class="row gx-5 align-items-center justify-content-center">
-            <div class="col-lg-5 order-lg-2">
-                <div class="p-5">
-                    <img class="homethumbnail" src="{% static 'images/QandA.png' %}" alt="..."
-                        style="width: 150px;height: auto;" />
-                </div>
-            </div>
-            <div class="col-lg-7 order-lg-1">
-                <div class="p-4">
-                    <a href="{% url 'interview_Q_A' %}" style="color: #00ADB5;">
-                        <h3 class="display-6" style="color: #00ADB5">Most Common Job Interview Questions and Answers
-                        </h3>
-                        <hr>
-                    </a>
-                    <div class="break-all">
-                        <p>Want to know (or use) some of the most common interview questions and answers? Here's a
-                            comprehensive list, along with some of the best answers.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CHAT BAR BLOCK -->
-    <div class="chat-bar-collapsible">
-        <button id="chat-button" type="button" class="collapsible">Chat with us!
-            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
-        </button>
-
-        <div class="content">
-            <div class="full-chat-block">
-                <!-- Message Container -->
-                <div class="outer-container">
-                    <div class="chat-container">
-                        <!-- Messages -->
-                        <div id="chatbox">
-                            <h5 id="chat-timestamp"></h5>
-                            <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
-                        </div>
-
-                        <!-- User input box -->
-                        <div class="chat-bar-input-block">
-                            <div id="userInput">
-                                <input id="textInput" class="input-box" type="text" name="msg"
-                                    placeholder="Tap 'Enter' to send a message">
-                                <p></p>
-                            </div>
-
-                            <div class="chat-bar-icons">
-                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
-                                    onclick="heartButton()"></i>
-                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
-                                    onclick="sendButton()"></i>
-                            </div>
-                        </div>
-
-                        <div id="chat-bar-bottom">
-                            <p></p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
     <hr>
     <!-- Footer-->
     <!--<footer class="py-5 bg-black">
             <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2021</p></div>
         </footer>-->
-<<<<<<< HEAD
 
 
 
@@ -555,87 +307,6 @@
     </script>
     <script>
         $('#srcbtn').click(function() {
-=======
-    <footer id="footer" style="background-color: #1B262C">
-        <div class="container >
-           <!-- Footer Links -->
-           <div class=" container text-center text-md-left ">
-               <!-- Grid row -->
-               <div class=" row mt ">
-                   <!-- Grid column -->
-                  <!-- <div class=" col-md-12 col-lg-8 col-xl-2 mx-auto mb-4 " style=" margin-top:5%; ">
-                       
-                       <img srcset=" {% static 'infox.png' %} " alt=" responsive image " class=" d-block
-            img-fluid " style=" align-content: center;margin: auto; ">
-                    </div>-->
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class=" col-md-12 col-lg-12 col-xl-12 mx-auto mb-4 " style=" margin-top:6%; ">
-                        <h1  style=" font-size: 150%;color: white; ">Contact information</h1>
-                        <p style=" color:white; ">
-                        Indian Address:<br>
-                        Heavenly Plaza<br>
-                    13<sup>th</sup> floor
-                        Vazhakkala Kochi<br>
-                        
-                        Kerala<br>
-                        Pin :682021<br>
-                        phone: +91 7736071987
-                  
-                        </p>
-  
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <!--<div class=" col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 " style=" margin-top:12%; ">
-                          <p style=" color:white;font-size: 15px; ">
-                            USA Address<br>
-                            INFOX Technologies
-                            615 ST George Square Court
-                            Winston-Salem, North Carolina
-                            United States Of America
-                            Phone:+001 336-5461805
-                          </p>
-  
-  
-                     </div>-->
-                      <!-- Grid column -->
-                  
-                      <!-- Grid column -->
-                     <!-- <div class=" col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 " style=" margin-top:16%; ">
-                          <p style=" color:white; ">
-                               Email:hr@infoxtechnologies.com <br>
-                               Web:infoxtechnologies.com
-                              </p>
-                        </div>-->
-                        <!-- Grid column -->
-  
-                </div>
-                <!-- Grid row -->
-            </div>
-  <!-- Footer Links -->
-  
-  
-  
-  </footer>
-        <!-- Bootstrap core JS-->
-        <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
-        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js "></script>
-        <!-- Core theme JS-->
- <script>
-    const inputDetect = document.querySelector('#searchbar');
-    const searchResult = document.getElementById('search-result');
-    const log = document.getElementById('values')
-    inputDetect.addEventListener('input', function (e) {
-        searchResult.style.display = 'block';
-        console.log('Im working');
-        log.textContent = e.target.value;
-        searchResult.style.display = " block ";
-    });
-</script>
-    <script>
-        $('#srcbtn').click(function () {
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
             let search = $('#searchbar').val();
             console.log(search)
             var searchList = document.querySelector('#search-result-list');
@@ -651,11 +322,7 @@
                 method: 'POST',
                 data: data,
                 dataType: 'json',
-<<<<<<< HEAD
                 success: function(data) {
-=======
-                success: function (data) {
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
                     searchList.innerHTML = '';
                     console.log('hi');
                     document.getElementById('search-result').style.display = " block ";
@@ -677,7 +344,6 @@
             });
         });
 
-<<<<<<< HEAD
         $('body').click(function() {
             $('.search-result').hide();
         });
@@ -688,15 +354,5 @@
 
 </body>
 
-=======
-        $('body').click(function () {
-            $('.search-result').hide();
-        });
-    </script>
-        <script src={% static 'js/scripts.js' %}></script>
-        <script src={% static 'js/responses.js' %}></script>
-        <script src={% static 'js/chat.js' %}></script>
-</body>
->>>>>>> 049682bb8cc3039334e3a5ce8b7c4961156e594f
 </html>
 {% endblock %}

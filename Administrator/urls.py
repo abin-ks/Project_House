@@ -116,11 +116,11 @@ urlpatterns = [
 
     re_path('add_ieee_db', views.add_ieee_db, name='add_ieee_db'),
 
-    re_path('view_ieee_papers/<int:id>', views.view_ieee_papers, name='view_ieee_papers'),
+    re_path(r'^view_ieee_papers/(?P<id>\d+)$', views.view_ieee_papers, name='view_ieee_papers'),
 
     re_path('ieee_search/',views.ieee_search,name='ieee_search'),
 
-    re_path('user_req_ieee_projects/<int:id>', views.user_req_ieee_projects, name='user_req_ieee_projects'),
+    re_path(r'^user_req_ieee_projects/(?P<id>\d+)$', views.user_req_ieee_projects, name='user_req_ieee_projects'),
 
     re_path('user_req_ieee_projects/user_req_ieeeprojectdb/', views.user_req_ieeeprojectdb, name='user_req_ieeeprojectdb'),
 
