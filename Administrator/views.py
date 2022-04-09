@@ -536,7 +536,7 @@ def user_req_projectdb(request):
 
 
 
-def user_req_inbuilt_projects(request,id):
+def user_req_inbuilt_projectss(request,id):
     requested_paper=Addnewproject.objects.get(id=id)
     context = {'requested_paper': requested_paper}
     return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
@@ -546,7 +546,7 @@ def user_req_inbuilt_projects(request,id):
 def user_reqinbuilt_project(request): 
     return render(request, 'Administrator/user_request_inbuiltproject.html') 
 
-def user_req_inbuilt_projectdb(request):
+def user_req_inbuilt_projectdbs(request):
     if request.method == 'POST':
         name = request.POST['name']
         emailid = request.POST['emailid']

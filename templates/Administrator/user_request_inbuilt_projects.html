@@ -101,7 +101,7 @@
                   <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form action={% url 'user_req_inbuilt_projectdb' %} method="post" onsubmit="return myfun()"style="color: #757575;">
+                    <form action="{% url 'user_req_inbuilt_projectdbs' %}" method="post" onsubmit="return myfun()"style="color: #757575;">
                         {% csrf_token %}
 
                       <div class="form-row">

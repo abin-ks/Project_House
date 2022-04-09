@@ -128,11 +128,11 @@ urlpatterns = [
     re_path('userviewpy/', views.userviewpy, name='userviewpy'),
 
 
-    re_path(r'^user_req_inbuilt_projects/(?P<id>\d+)$', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'), 
+    re_path(r'^user_req_inbuilt_projectss/(?P<id>\d+)$', views.user_req_inbuilt_projectss, name='user_req_inbuilt_projectss'), 
 
     re_path('user_reqinbuilt_project/', views.user_reqinbuilt_project, name='user_reqinbuilt_project'),
 
-    re_path(r'^user_req_inbuilt_projectdb/(?P<id>\d+)$', views.user_req_inbuilt_projectdb, name='user_req_inbuilt_projectdb'),
+    re_path(r'^user_req_inbuilt_projectdbs$', views.user_req_inbuilt_projectdbs, name='user_req_inbuilt_projectdbs'),
     
     re_path('userintership/', views.userintership, name='userintership'),
 
