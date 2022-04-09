@@ -17,37 +17,6 @@ from django.contrib.auth.models import User, auth
 
 # Create your views here.
 random_otp =gen_otp()
-
-def test(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        emailid = request.POST['emailid']
-        phonenumber = request.POST['phonenumber']
-        projectname = request.POST['projectname']
-        location = request.POST['location']
-        req2 = User_req_ieeeproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
-                                                 projectname=projectname, Location=location)
-        req2.save()
-        messages.success(request,'Thank you, Admin will get to you soon')
-    return render(request,'Administrator/ieee2.html')   
-
-def ieee(request):
-    mem = Addnewplatform.objects.all
-    print(mem)
-    if request.method != 'POST':
-        
-        paper = add_new_ieee.objects.filter(selectplatform=mem)
-        context = {'paper': paper}
-        return render(request, 'Administrator/ieee.html', context)
-    else:
-        return render(request, 'Administrator/user dasboard.html')
-
-def ieee2(request):
-    requested_paper=add_new_ieee.objects.all
-    context = {'requested_paper': requested_paper}
-    return render(request, 'Administrator/ieee2.html', context)
-
-
 def abc(request):
     return render(request, 'Administrator/dashboard.html')
 #admin login
@@ -377,7 +346,7 @@ def profilecreate(request,id):
     dela.email=request.POST['email'],
     dela.password=request.POST['password']
     dela.save()
-    return redirect('adminDash')
+    return redirect('my_pro')
 
 #create admin profile
 def newprofilecreate(request):
@@ -496,6 +465,7 @@ def add_ieee_db(request):
         title=request.POST["title"]
         selectplatform = request.POST['selectplatform']
         uploadpdf = request.FILES.get('uploadpdf')
+        
         paper=add_new_ieee.objects.create(title=title,selectplatform=selectplatform,uploadpdf=uploadpdf)
         paper.save()
         return redirect('adminDash')
@@ -513,6 +483,7 @@ def view_ieee_papers(request,id):
         return render(request, 'Administrator/view_ieee_papers.html', context)
     else:
         return render(request, 'Administrator/user dasboard.html')
+
 
 def ieee_search(request):
     if request.method == 'POST':
@@ -555,7 +526,7 @@ def user_req_projectdb(request):
         phonenumber = request.POST['phonenumber']
         projectname = request.POST['projectname']
         location = request.POST['location']
-        req2 = User_req_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+        req2 = User_req_ieeeproject.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
                                                  projectname=projectname, Location=location)
         req2.save()
     return redirect('userdashboard')
