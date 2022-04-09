@@ -50,7 +50,7 @@ urlpatterns = [
     re_path('viewprojects/', views.viewprojects, name='viewprojects'),
 
     #display platform 
-    re_path('viewprojectdetail/', views.viewprojectdetail, name='viewprojectdetail'),
+    re_path(r'^viewprojectdetail$', views.viewprojectdetail, name='viewprojectdetail'),
 
     #Home Page
     re_path('userdashboard/',views.userdashboard, name='userdashboard'),
@@ -64,20 +64,20 @@ urlpatterns = [
     #display projects based on platform
     re_path('userprojects/<int:id>', views.userpythonprojects, name='userpythonprojects'),
 
-    re_path('adminprojectsview/<int:id>/', views.adminprojectsview, name='adminprojectsview'),
+  re_path(r'^adminprojectsview/(?P<id>\d+)$', views.adminprojectsview, name='adminprojectsview'),
 
     #not working
     re_path('userandroidprojects/', views.userandroidprojects, name='userandroidprojects'),
     re_path('usermlprojects/', views.usermlprojects, name='usermlprojects'),
 
     #display project details
-    re_path('userviewpython/', views.userviewpython, name='userviewpython'),
+    re_path(r'^userviewpython/(?P<id>\d+)$', views.userviewpython, name='userviewpython'),
     
     #save user request project
     re_path('userreqprojects/userreqprojectdb/', views.userreqprojectdb, name='userreqprojectdb'),
     
     #delete projects
-    re_path('viewprojectdetail/deleteprojects/<int:id>/', views.deleteprojects,name='deleteprojects'),
+   re_path(r'^viewprojectdetail/deleteprojects/(?P<id>\d+)$', views.deleteprojects,name='deleteprojects'),
 
     #save project details
     re_path('addnewprojectdb/', views.addnewprojectdb, name='addnewprojectdb'),
@@ -101,7 +101,7 @@ urlpatterns = [
     #not working
     re_path('result/', views.result, name='result'),
 
-    re_path('getproject/<int:id>', views.getproject, name='getproject'),
+    re_path(r'^getproject/(?P<id>\d+)$', views.getproject, name='getproject'),
     re_path('show_inbuiltproject_requests/', views.show_inbuiltproject_requests, name='show_inbuiltproject_requests'),
 
     #search projects
@@ -128,11 +128,11 @@ urlpatterns = [
     re_path('userviewpy/', views.userviewpy, name='userviewpy'),
 
 
-    re_path('user_req_inbuilt_projects/', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'), 
+    re_path(r'^user_req_inbuilt_projects/(?P<id>\d+)$', views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'), 
 
     re_path('user_reqinbuilt_project/', views.user_reqinbuilt_project, name='user_reqinbuilt_project'),
 
-    re_path('user_req_inbuilt_projectdb/', views.user_req_inbuilt_projectdb, name='user_req_inbuilt_projectdb'),
+    re_path(r'^user_req_inbuilt_projectdb/(?P<id>\d+)$', views.user_req_inbuilt_projectdb, name='user_req_inbuilt_projectdb'),
     
     re_path('userintership/', views.userintership, name='userintership'),
 

@@ -238,16 +238,16 @@ def ProjectDiverter(request, name):
         return page_not_found(request)
 
 #display each projects details
-def userviewpython(request):
-    # if request.method == 'POST':
-    #     return render(request, 'Administrator/user dasboard.html')
+def userviewpython(request, id):
+    if request.method == 'POST':
+        return render(request, 'Administrator/user dasboard.html')
 
-    # else:
-    #     project = Addnewproject.objects.get(id=id)
+    else:
+        project = Addnewproject.objects.get(id=id)
 
-    #     context = {'projects': project}
-    #     return render(request, 'Administrator/user view python projects.html', context)
-    return render(request, 'Administrator/user view python projects.html')
+        context = {'projects': project}
+        return render(request, 'Administrator/user view python projects.html', context)
+   
 
 #delete projects
 def deleteprojects(request, id):
@@ -529,18 +529,19 @@ def user_req_projectdb(request):
         phonenumber = request.POST['phonenumber']
         projectname = request.POST['projectname']
         location = request.POST['location']
-        req2 = User_req_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+        req2 = User_req_inbuilt_project.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
                                                  projectname=projectname, Location=location)
         req2.save()
     return redirect('userdashboard')
 
 
 
-def user_req_inbuilt_projects(request):
-    # requested_paper=Addnewproject.objects.get(id=id)
-    # context = {'requested_paper': requested_paper}
-    # return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
-    return render(request, 'Administrator/user_request_inbuilt_projects.html')
+def user_req_inbuilt_projects(request,id):
+    requested_paper=Addnewproject.objects.get(id=id)
+    context = {'requested_paper': requested_paper}
+    return render(request, 'Administrator/user_request_inbuilt_projects.html', context)
+
+    
 
 def user_reqinbuilt_project(request): 
     return render(request, 'Administrator/user_request_inbuiltproject.html') 
