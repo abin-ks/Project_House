@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     #admin dashboard
-    re_path(r'^admindash$', views.admindash, name='admindash'),
+    re_path(r'^adminDash$', views.adminDash, name='adminDash'),
     re_path('abc/', views.abc, name='abc'),
 
     #admin login

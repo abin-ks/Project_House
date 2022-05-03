@@ -1,236 +1,93 @@
-{% extends 'adm_base.html' %}
-{% load static %}
+{% extends 'Administrator/adm_base.html' %} {% load static %} {% block body %}
 
-<html dir="ltr" lang="en">
-    {% block body %}
+<form method="post" class="post-form" action=/profilecreate/ enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="grid-margin stretch-card" style="margin-top: -20px">
+            <div class="card" style="width: 50rem">
+                <div class="card-body">
 
-<head>
-  
-    
-    <style>
-        .welcome {
-            width: 90%;
-            background: #FFFFFF;
-            border-radius: 2rem;
-        }
-        
-        .cancel {
-            width: 30%;
-            background: grey;
-            margin-left: 14%;
-            /* margin-bottom: 2%; */
-            border-radius: 1rem;
-        }
-        
-        .update {
-            width: 30%;
-            background: rgba(0, 183, 255, 0.89);
-            margin-left: 14%;
-            /* margin-bottom: 2%; */
-            border-radius: 1rem;
-        }
-        
-        .inp1,
-        .inp2,
-        .inp3,
-        .inp4 {
-            width: 180px;
-        }
-        
-        @media screen and (max-width: 991px) {
-            .welcome {
-                width: 92% !important;
-            }
-            .mobring {
-                margin-right: 10px !important;
-                position: absolute;
-            }
-            .mbr1 {
-                margin-left: -36px !important;
-            }
-            .mbr2 {
-                margin-left: -36px !important;
-            }
-            .mbr3 {
-                margin-left: -36px !important;
-            }
-            .mbr4 {
-                margin-left: -36px !important;
-            }
-            .inp1 {
-                margin-left: 41px !important;
-            }
-            .inp2 {
-                margin-left: 38px !important;
-            }
-            .inp3 {
-                margin-left: 43px !important;
-            }
-        }
-        
-        @media screen and (max-width: 395px) {
-            .welcome {
-                width: 97% !important;
-            }
-        }
-        
-        @media screen and (min-width: 992px) {
-            .welcome {
-                width: 85%;
-                margin-left: 25%;
-            }
-            .cancel {
-                width: 10%;
-                background: grey;
-                margin-left: 64%;
-                margin-bottom: 2%;
-                border-radius: 1rem;
-            }
-            .update {
-                width: 10%;
-                background: rgba(0, 183, 255, 0.89);
-                margin-left: 3%;
-                margin-bottom: 2%;
-                border-radius: 1rem;
-            }
-        }
-    </style>
-</head>
+                    <h1 class="card-title" style="font-size: 27px">Edit Profile</h1>
+                    <br /><br />
 
-            <form action="profileshow" method="post">
-                {% csrf_token %}
-                <div class="page-breadcrumb">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">My Profile</h4>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- <div class="row welcome" style="margin-left: 7%; margin-top: 2rem; margin-bottom: 3%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
-                    <div class="d-flex flex-row comment-row p-3 mt-0">
-                        <div class="comment-text ps-2 ps-md-3 w-100" style="margin-top: 1rem;">
-                            <h5 class="font-medium">Welcome back !!!</h5>
-                            <hr style="width: 95%;">
-                            <span class="mb-3 d-block">Project house - Admin</span>
-                        </div>
-                        <div class="p-2"><img src="{% static 'images/Ellipse3.png' %}" alt="user" width="83" class="rounded-circle"></div>
-                    </div>
-
-                    </div>
-                    <div class="row" style="margin-bottom: 3%;">
-                       <div class="col-md-12 col-lg-6" style="margin-left: 10%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3px;">anushavenugopal@gmail.com</span>
-                        </div>
-                        <div class="col-md-12 col-lg-6" style="margin-left: -10%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3px;">mob:1234567890</span>
-
-                        </div>
-                    </div>
-
-
-                </div> --> 
-            </form> 
-        </div>
-        {% if profile %}
-      
-        <div style="text-align: center;">
-            {% for i in profile %}
-            <form class="d-flex justify-content-center d-lg-block" action="{% url 'profilecreate'  %}" method="post">
-                {% csrf_token %}
-                <div class="row welcome" style="margin-top: 2rem; margin-bottom: 3%; width: 65%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
-                    <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                        <img class="mobring mbr1" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                        <span class="font-medium" style="margin-left: 3%;">Name</span>
-                        <input type="text" class="inp1" name="name" placeholder="Enter Name" style="margin-left: 1rem;" value="{{ i.name }}">
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                        <img class="mobring mbr2" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                        <span class="font-medium" style="margin-left: 3%;">Phone</span>
-                        <input type="text" class="inp2" name="phone" placeholder="Enter Phone number" style="margin-left: 2rem;" value="{{ i.phone }}">
-
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                        <img class="mobring mbr3" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                        <span class="font-medium" style="margin-left: 3%;">Email</span>
-                        <input type="text" class="inp3" name="email" placeholder="Enter Email ID" style="margin-left: 1rem;" value="{{ i.email }}">
-
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                        <img class="mobring mbr4" src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                        <span class="font-medium" style="margin-left: 3%;">Password</span>
-                        <input type="password" class="inp4" name="password" placeholder="Enter Password" style="margin-left: 1rem;" value="{{ i.password }}">
-
-                    </div>
-
-
-                    <button class="btn btn-primary cancel mb-4" type="reset">Cancel</button>
-                    <button class="btn btn-primary update mb-4" type="submit">Update</button>
-
-                </div>
-            </form>
-            {% endfor %} {% else %}
-            </form>
-            <div style="text-align: center;">
-
-                <form action="{% url 'newprofilecreate' %}" method="post">
-                    {% csrf_token %}
-                    <div class="row welcome" style="margin-left: 26%; margin-top: 2rem; margin-bottom: 3%; width: 65%;box-shadow: rgb(23 24 25 / 45%) 0px 3px 3px;">
-                        <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3%;">Name</span>
-                            <input type="text" name="name" placeholder="Enter Name" style="margin-left: 1rem;" value="">
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3%;">Phone</span>
-                            <input type="text" name="phone" placeholder="Enter Phone number" style="margin-left: 2rem;" value="">
-
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3%;">Email</span>
-                            <input type="text" name="email" placeholder="Enter Email ID" style="margin-left: 1rem;" value="">
-
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-lg-6 p-4" style="margin-left: 0%;">
-                            <img src="{% static 'plugins/images/Icon-awesome-circle-notch.png' %}" alt="loading" width="16">
-                            <span class="font-medium" style="margin-left: 3%;">Password</span>
-                            <input type="password" name="password" placeholder="Enter Password" style="margin-left: 1rem;" value="">
-
-                        </div>
-                        <button class="btn btn-primary cancel" type="reset">Cancel</button>
-                        <button class="btn btn-primary update" type="submit">Create</button>
-
-                    </div>
-                </form>
-                {% endif %}
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" style="font-size: 20px">Name</label
+              >
+              <div class="col-md-8">
+                <input
+                  autocomplete="off"
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Enter Name"
+                  value="{{ i.name }}"
+                />
+              </div>
             </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
-        <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="{% static 'plugins/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'js/app-style-switcher.js' %}"></script>
-        <script src="{% static 'plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
-        <!--Wave Effects -->
-        <script src="{% static 'js/waves.js' %}"></script>
-        <!--Menu sidebar -->
-        <script src="{% static 'js/sidebarmenu.js' %}"></script>
-        <!--Custom JavaScript -->
-        <script src="{% static 'js/custom.js' %}"></script>
-        <!--This page JavaScript -->
-        <!--chartis chart-->
-        <script src="{% static 'plugins/bower_components/chartist/dist/chartist.min.js' %}"></script>
-        <script src="{% static 'plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
-        <script src="{% static 'js/pages/dashboards/dashboard1.js' %}"></script>
 
-{% endblock body %}
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" style="font-size: 20px"
+                >Phone</label
+              >
+              <div class="col-md-8">
+                <input
+                  autocomplete="off"
+                  type="text"
+                  class="form-control"
+                  name="phone"
+                  placeholder="Enter Phone number"
+                  value="{{ i.phone }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" style="font-size: 20px"
+                >Email</label
+              >
+
+              <div class="col-md-8">
+                <input
+                  autocomplete="off"
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  placeholder="Enter Email ID"
+                  value="{{ i.email }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label" style="font-size: 20px"
+                >Password</label
+              >
+              <div class="col-md-8">
+                <input
+                  autocomplete="off"
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="Enter Password"
+                  value="{{ i.password }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label text-muted">
+                
+            </div>
+            <button type="submit" class="btn btn-primary me-2 w-10">Update</button>
+            <button class="btn btn-light w-10"   type="reset">Cancel</button>
+
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</html>
+{% endblock body%}

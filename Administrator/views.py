@@ -63,7 +63,7 @@ def intership(request):
         return redirect('admin_login')
 #admin  after login or admin Dashboard
 
-def admindash(request):  # dashboard
+def adminDash(request):  # dashboard
     if 'admin' in request.session:
         pro = profile.objects.all()
         project = Addnewproject.objects.all()
