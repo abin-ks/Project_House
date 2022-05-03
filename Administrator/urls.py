@@ -63,7 +63,7 @@ urlpatterns = [
     re_path('userreqprojects/', views.userreqprojects, name='userreqprojects'),
 
     #display projects based on platform
-    re_path('userprojects/<int:id>', views.userpythonprojects, name='userpythonprojects'),
+    re_path(r'^userprojects/(?P<id>\d+)$', views.userpythonprojects, name='userpythonprojects'),
 
     re_path('adminprojectsview/<int:id>', views.adminprojectsview, name='adminprojectsview'),
 
@@ -116,7 +116,7 @@ urlpatterns = [
 
     re_path('add_ieee_db', views.add_ieee_db, name='add_ieee_db'),
 
-    re_path('view_ieee_papers/<int:id>', views.view_ieee_papers, name='view_ieee_papers'),
+    re_path(r'^view_ieee_papers/(?P<id>\d+)$', views.view_ieee_papers, name='view_ieee_papers'),
 
     re_path('ieee_search/',views.ieee_search,name='ieee_search'),
 
