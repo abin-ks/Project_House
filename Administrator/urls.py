@@ -16,14 +16,14 @@ urlpatterns = [
             views.deleteprofile, name='deleteprofile'),
 
     #     # intership
-    #     re_path('intership/', views.intership, name='intership'),
+    re_path('intership/', views.intership, name='intership'),
     #     # platform
 
     #     # add platform
     #     re_path('platform/', views.platform, name='platform'),
 
     #     # display platform
-    #     re_path('mainplatform/', views.mainplatform, name='mainplatform'),
+    re_path('mainplatform/', views.mainplatform, name='mainplatform'),
 
     #     # edit platform
     #     re_path('mainplatform/editplatform/<int:id>/',
@@ -39,7 +39,7 @@ urlpatterns = [
     #             views.deleteplatform, name='deleteplatform'),
 
     #     # profile
-    #     re_path('myprofile/', views.myprofile, name='myprofile'),
+    re_path('myprofile/', views.myprofile, name='myprofile'),
 
     #     # update profile
     #     re_path('profileshow/<int:id>/', views.profileshow, name='profileshow'),
@@ -48,10 +48,10 @@ urlpatterns = [
     #     # projects
 
     #     # projects mainpage
-    #     re_path('projects/', views.projects, name='projects'),
+    re_path('projects/', views.projects, name='projects'),
 
     #     # display requested projects on admin side
-    #     re_path('reqprojects/', views.reqprojects, name='reqprojects'),
+    re_path('reqprojects/', views.reqprojects, name='reqprojects'),
     #     re_path('adminDashboard/reqprojects/',
     #             views.reqprojects, name='reqprojects'),
 
@@ -115,12 +115,12 @@ urlpatterns = [
     #             name='viewandroidprojects'),
 
     #     # update profile
-    #     re_path('myprofile/profilecreate/<int:id>/',
-    #             views.profilecreate, name='profilecreate'),
+    re_path('myprofile/profilecreate/<int:id>/',
+            views.profilecreate, name='profilecreate'),
 
-    #     # create a profile
-    #     re_path('myprofile/newprofilecreate/',
-    #             views.newprofilecreate, name='newprofilecreate'),
+    # create a profile
+    re_path('myprofile/newprofilecreate/',
+            views.newprofilecreate, name='newprofilecreate'),
 
     #     #not working
     #     re_path('result/', views.result, name='result'),
@@ -132,7 +132,7 @@ urlpatterns = [
     #     # search projects
     re_path('search/', views.search, name='search'),
 
-    #     re_path('main_ieee', views.main_ieee, name='main_ieee'),
+    re_path('main_ieee', views.main_ieee, name='main_ieee'),
 
     #     re_path('main_ieee/deletepaper/<int:id>/',
     #             views.deletepaper, name='deletepaper'),
@@ -152,8 +152,8 @@ urlpatterns = [
     #     re_path('user_req_ieee_projects/user_req_ieeeprojectdb/',
     #             views.user_req_ieeeprojectdb, name='user_req_ieeeprojectdb'),
 
-    #     re_path('req_ieeeprojects/', views.req_ieeeprojects,
-    #             name='req_ieeeprojects'),
+    re_path('req_ieeeprojects/', views.req_ieeeprojects,
+            name='req_ieeeprojects'),
 
     #     re_path('user_req_inbuilt_projects/<int:id>',
     #             views.user_req_inbuilt_projects, name='user_req_inbuilt_projects'),
@@ -163,7 +163,7 @@ urlpatterns = [
 
     #     re_path('userintership/', views.userintership, name='userintership'),
 
-    #     re_path('interview_q_a/', views.interview_q_a, name='interview_q_a'),
+    re_path('interview_q_a/', views.interview_q_a, name='interview_q_a'),
 
     #     re_path('interview/', views.interview, name='interview'),
 
@@ -171,11 +171,11 @@ urlpatterns = [
 
     #     re_path('interview_Q_A/', views.interview_Q_A, name='interview_Q_A'),
 
-    #     re_path('admin_logout', views.admin_logout, name='admin_logout'),
+    re_path('admin_logout', views.admin_logout, name='admin_logout'),
 
     #     re_path('activate', views.activate, name='activate'),
 
-    #     re_path('quiz/', views.quiz, name='quiz'),
+    re_path('quiz/', views.quiz, name='quiz'),
 
     #     re_path('savemockq/', views.savemockq, name='savemockq'),
 
@@ -192,8 +192,8 @@ urlpatterns = [
 
     #     re_path('viewtutorial/', views.viewtutorial, name='viewtutorial'),
 
-    #     re_path('addvediotutorial/', views.addvediotutorial,
-    #             name='addvediotutorial'),
+    re_path('addvediotutorial/', views.addvediotutorial,
+            name='addvediotutorial'),
 
     #     re_path('uploadtutorial/', views.uploadtutorial, name='uploadtutorial'),
 
@@ -203,7 +203,7 @@ urlpatterns = [
     #     re_path('userviewtutorial', views.userviewtutorial,
     #             name='userviewtutorial'),
     #     # courses module
-    #     re_path('courses/', views.courses, name='courses'),
+    re_path('courses/', views.courses, name='courses'),
     #     # Platform
     #     re_path('platforms/', views.platforms, name='platforms'),
     #     re_path('addplatform/', views.addplatform, name='addplatform'),

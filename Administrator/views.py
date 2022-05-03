@@ -22,7 +22,7 @@ from Administrator.models import *
 def admindash(request):  # dashboard
     if 'admin' in request.session:
         pro = profile.objects.all()
-        project = Addnewproject.objects.all()
+        project = Addnewproject.objects.all().count()
         platform = Addnewplatform.objects.all().count()
         proreq = Userrequestproject.objects.all().count()
         requestedpro = User_req_inbuilt_project.objects.all().count()
@@ -78,22 +78,22 @@ def admin_login(request):
         return render(request, 'Administrator/login.html')
 
 
-# def admin_logout(request):
-#     try:
-#         del request.session['admin']
-#     except:
-#         return redirect('admin_login')
-#     return redirect('admin_login')
+def admin_logout(request):
+    try:
+        del request.session['admin']
+    except:
+        return redirect('admin_login')
+    return redirect('admin_login')
 
 
 # # intership
-# def intership(request):
-#     if 'admin' in request.session:
-#         platform = applyintershipt.objects.all()
-#         verify = PhoneOtp.objects.all()
-#         return render(request, 'Administrator/intershiprequest.html', {'platform': platform, 'verify': verify})
-#     else:
-#         return redirect('admin_login')
+def intership(request):
+    if 'admin' in request.session:
+        platform = applyintershipt.objects.all()
+        verify = PhoneOtp.objects.all()
+        return render(request, 'Administrator/intershiprequest.html', {'platform': platform, 'verify': verify})
+    else:
+        return redirect('admin_login')
 # # admin  after login or admin Dashboard
 
 
@@ -120,12 +120,12 @@ def adminDash(request):
 # # display platform
 
 
-# def mainplatform(request):
-#     if 'admin' in request.session:
-#         platform = Addnewplatform.objects.all()
-#         return render(request, 'Administrator/main platform.html', {'plat': platform})
-#     else:
-#         return redirect('admin_login')
+def mainplatform(request):
+    if 'admin' in request.session:
+        platform = Addnewplatform.objects.all()
+        return render(request, 'Administrator/main platform.html', {'plat': platform})
+    else:
+        return redirect('admin_login')
 
 
 # def editplatform(request, id):
@@ -159,24 +159,24 @@ def adminDash(request):
 # # profile
 
 
-# def myprofile(request):
-#     if 'admin' in request.session:
-#         user1 = request.session['admin']
-#         pro1 = profile.objects.get(name=user1)
-#         pro = profile.objects.filter(id=pro1.id)
-#         return render(request, 'Administrator/my_profile.html',
-#                       {'profile': pro})
-#     else:
-#         return redirect('admin_login')
+def myprofile(request):
+    if 'admin' in request.session:
+        user1 = request.session['admin']
+        pro1 = profile.objects.get(name=user1)
+        pro = profile.objects.filter(id=pro1.id)
+        return render(request, 'Administrator/my_profile.html',
+                      {'profile': pro})
+    else:
+        return redirect('admin_login')
 
 # # main project page
 
 
-# def projects(request):
-#     if 'admin' in request.session:
-#         return render(request, 'Administrator/projects.html')
-#     else:
-#         return redirect('admin_login')
+def projects(request):
+    if 'admin' in request.session:
+        return render(request, 'Administrator/projects.html')
+    else:
+        return redirect('admin_login')
 
 
 # def viewprojects(request):
@@ -427,27 +427,27 @@ def viewmlprojects(request):
 # # edit admin profile
 
 
-# def profilecreate(request, id):
-#     dela = profile.objects.get(id=id)
-#     dela.name = request.POST['name']
-#     dela.phone = request.POST['phone']
-#     dela.email = request.POST['email'],
-#     dela.password = request.POST['password']
-#     dela.save()
-#     return redirect('adminDash')
+def profilecreate(request, id):
+    dela = profile.objects.get(id=id)
+    dela.name = request.POST['name']
+    dela.phone = request.POST['phone']
+    dela.email = request.POST['email'],
+    dela.password = request.POST['password']
+    dela.save()
+    return redirect('adminDash')
 
 # # create admin profile
 
 
-# def newprofilecreate(request):
-#     name = request.POST['name']
-#     phone = request.POST['phone']
-#     email = request.POST['email'],
-#     password = request.POST['password']
-#     getpro = profile.objects.create(
-#         name=name, email=email, phone=phone, password=password)
-#     getpro.save()
-#     return render(request, 'Administrator/dashboard.html', )
+def newprofilecreate(request):
+    name = request.POST['name']
+    phone = request.POST['phone']
+    email = request.POST['email'],
+    password = request.POST['password']
+    getpro = profile.objects.create(
+        name=name, email=email, phone=phone, password=password)
+    getpro.save()
+    return render(request, 'Administrator/dashboard.html', )
 
 # # delete admin profile
 
@@ -476,12 +476,12 @@ def deleteprofile(request, id):
 # # new project request
 
 
-# def reqprojects(request):
-#     if 'admin' in request.session:
-#         req1 = Userrequestproject.objects.all()
-#         return render(request, 'Administrator/requested projects.html', {'req': req1})
-#     else:
-#         return redirect('admin_login')
+def reqprojects(request):
+    if 'admin' in request.session:
+        req1 = Userrequestproject.objects.all()
+        return render(request, 'Administrator/requested projects.html', {'req': req1})
+    else:
+        return redirect('admin_login')
 
 
 # def userreqprojectdb(request):
@@ -534,12 +534,12 @@ def deleteprofile(request, id):
 #     return render(request, 'Administrator/getreq_inbuiltprojects.html', {'spo': spro})
 
 
-# def main_ieee(request):
-#     if 'admin' in request.session:
-#         ieee = add_new_ieee.objects.all()
-#         return render(request, 'Administrator/main_ieee.html', {'paper': ieee})
-#     else:
-#         return redirect('admin_login')
+def main_ieee(request):
+    if 'admin' in request.session:
+        ieee = add_new_ieee.objects.all()
+        return render(request, 'Administrator/main_ieee.html', {'paper': ieee})
+    else:
+        return redirect('admin_login')
 
 
 # def deletepaper(request, id):
@@ -609,12 +609,12 @@ def deleteprofile(request, id):
 #     return render(request, 'Administrator/user_request_ieee_projects.html')
 
 
-# def req_ieeeprojects(request):
-#     if 'admin' in request.session:
-#         req1 = User_req_ieeeproject.objects.all()
-#         return render(request, 'Administrator/requested_ieee_projects.html', {'req': req1})
-#     else:
-#         return redirect('admin_login')
+def req_ieeeprojects(request):
+    if 'admin' in request.session:
+        req1 = User_req_ieeeproject.objects.all()
+        return render(request, 'Administrator/requested_ieee_projects.html', {'req': req1})
+    else:
+        return redirect('admin_login')
 
 
 # def user_req_projectdb(request):
@@ -650,55 +650,55 @@ def deleteprofile(request, id):
 #     return render(request, 'Administrator/user_request_inbuilt_projects.html')
 
 
-# def userintership(request):
-#     if request.method == 'POST':
-#         account_sid = "AC8fc1f29aa02f3a6e9beec28e3f7efc82"
-#         auth_token = "f5a29b6452cb4f75e795e54488fb2541"
+def userintership(request):
+    if request.method == 'POST':
+        account_sid = "AC8fc1f29aa02f3a6e9beec28e3f7efc82"
+        auth_token = "f5a29b6452cb4f75e795e54488fb2541"
 
-#         name = request.POST['name']
-#         emailid = request.POST['emailid']
-#         phonenumber = request.POST['phonenumber']
-#         ssl = request.POST['selectplatform']
-#         qqa = request.POST['qualifications']
-#         aaq = request.POST['location']
-#         college = request.POST['college']
-#         '''req2 = applyintershipt.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
-#                                                  platform=ssl, qualifications=qqa,location=aaq,college=college)
-#         req2.save()'''
+        name = request.POST['name']
+        emailid = request.POST['emailid']
+        phonenumber = request.POST['phonenumber']
+        ssl = request.POST['selectplatform']
+        qqa = request.POST['qualifications']
+        aaq = request.POST['location']
+        college = request.POST['college']
+        '''req2 = applyintershipt.objects.create(name=name, emailid=emailid, phonenumber=phonenumber,
+                                                 platform=ssl, qualifications=qqa,location=aaq,college=college)
+        req2.save()'''
 
-#         request.session["a"] = name
-#         request.session["b"] = emailid
-#         request.session["c"] = phonenumber
-#         request.session["d"] = ssl
-#         request.session["e"] = qqa
-#         request.session["f"] = aaq
-#         request.session["g"] = college
-#         subject = ssl
-#         message = "Greeting" + " " + name + "\n" + \
-#             "Thank you for contacting us your verification code is" + \
-#             str(random_otp)
-#         recepient = str(emailid)
-#         send_mail(
-#             subject, message, EMAIL_HOST_USER, [recepient], fail_silently=False)
-#         messages.success(
-#             request, 'Please verify your application with the code that is sent to your registered email account.   ')
-#         msg_body = f'''Verify your internship application. Your verification code is {random_otp}
-#        '''
-#         '''send_sms(account_sid,auth_token, msg_body,'+14159972855', phonenumber)
-#         platformname = Addnewplatform.objects.all()'''
-#         return render(request, 'Administrator/activate.html')
-#     else:
-#         platformname = Addnewplatform.objects.all()
-#         return render(request, 'Administrator/userapplyintership.html', {'platformname': platformname})
+        request.session["a"] = name
+        request.session["b"] = emailid
+        request.session["c"] = phonenumber
+        request.session["d"] = ssl
+        request.session["e"] = qqa
+        request.session["f"] = aaq
+        request.session["g"] = college
+        subject = ssl
+        message = "Greeting" + " " + name + "\n" + \
+            "Thank you for contacting us your verification code is" + \
+            str(random_otp)
+        recepient = str(emailid)
+        send_mail(
+            subject, message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+        messages.success(
+            request, 'Please verify your application with the code that is sent to your registered email account.   ')
+        msg_body = f'''Verify your internship application. Your verification code is {random_otp}
+       '''
+        '''send_sms(account_sid,auth_token, msg_body,'+14159972855', phonenumber)
+        platformname = Addnewplatform.objects.all()'''
+        return render(request, 'Administrator/activate.html')
+    else:
+        platformname = Addnewplatform.objects.all()
+        return render(request, 'Administrator/userapplyintership.html', {'platformname': platformname})
 
 
-# def interview_q_a(request):
-#     if 'admin' in request.session:
-#         plat = Addnewplatform.objects.all()
-#         s = Q_A.objects.all()
-#         return render(request, 'Administrator/admin_interview_Q_A.html', {'s': s, 'plat': plat})
-#     else:
-#         return redirect('admin_login')
+def interview_q_a(request):
+    if 'admin' in request.session:
+        plat = Addnewplatform.objects.all()
+        s = Q_A.objects.all()
+        return render(request, 'Administrator/admin_interview_Q_A.html', {'s': s, 'plat': plat})
+    else:
+        return redirect('admin_login')
 
 
 # def interview(request):
@@ -754,13 +754,13 @@ def deleteprofile(request, id):
 #         return render(request, 'Administrator/activate.html')
 
 
-# def quiz(request):
-#     if 'admin' in request.session:
-#         plat = Addnewplatform.objects.all()
-#         s = QuesModel.objects.all()
-#         return render(request, 'Administrator/quizamin.html', {'plat': plat, 's': s})
-#     else:
-#         return redirect('admin_login')
+def quiz(request):
+    if 'admin' in request.session:
+        plat = Addnewplatform.objects.all()
+        s = QuesModel.objects.all()
+        return render(request, 'Administrator/quizamin.html', {'plat': plat, 's': s})
+    else:
+        return redirect('admin_login')
 
 
 # def savemockq(request):
@@ -866,10 +866,10 @@ def deleteprofile(request, id):
 #     return render(request, 'Administrator/tutorilsusermain.html', {'platformname': platformname})
 
 
-# def addvediotutorial(request):
-#     platformname = Addnewplatform.objects.all()
-#     tuto = tutorial.objects.all()
-#     return render(request, 'Administrator/adminaddvediotutorials.html', {'plat': platformname, 'tutorial': tuto})
+def addvediotutorial(request):
+    platformname = Addnewplatform.objects.all()
+    tuto = tutorial.objects.all()
+    return render(request, 'Administrator/adminaddvediotutorials.html', {'plat': platformname, 'tutorial': tuto})
 
 
 # def uploadtutorial(request):
@@ -924,11 +924,11 @@ def deleteprofile(request, id):
 #                       {'tutorial': re, 'tutorial2': re1, 'tutorial3': re2, 'tutorial4': re3, 'tutorial5': re4, 'platform': platformm})
 
 
-# def courses(request):
-#     if 'admin' in request.session:
-#         return render(request, 'Administrator/courses.html')
-#     else:
-#         return redirect('admin_login')
+def courses(request):
+    if 'admin' in request.session:
+        return render(request, 'Administrator/courses.html')
+    else:
+        return redirect('admin_login')
 
 
 # def platforms(request):

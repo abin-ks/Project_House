@@ -1,4 +1,4 @@
-{% extends 'Administrator/adminbase.html' %} {% load static %} {% block body %}
+{% extends 'user/userbase.html' %} {% load static %} {% block body %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -49,10 +49,10 @@
     <div class="row">
       {% for x in projects %}
 
-      <div class="col-md-4 grid-margin">
+      <div class="col-md-3">
         <div class="card" style="height: 345px; width:300px;">
           <div class="card-body">
-            <img src="{{ x.uploadthumbnail }}" class="card-img-top p-2" style="width: 250px; "/>
+            <img src="{{ x.uploadthumbnail }}" class="card-img-top" style="width: 250px; "/>
             <center>
               <h2 class="card-title">{{ x.projectname }}</h2>
               <p class="card-text">{{ x.shortdescription }}</p>
