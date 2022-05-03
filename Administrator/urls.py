@@ -77,7 +77,7 @@ urlpatterns = [
     re_path('userreqprojects/userreqprojectdb/', views.userreqprojectdb, name='userreqprojectdb'),
     
     #delete projects
-   re_path(r'^viewprojectdetail/deleteprojects/(?P<id>\d+)$', views.deleteprojects,name='deleteprojects'),
+   re_path(r'^viewprojectdetail/deleteprojectss/(?P<id>\d+)$', views.deleteprojectss,name='deleteprojectss'),
 
     #save project details
     re_path('addnewprojectdb/', views.addnewprojectdb, name='addnewprojectdb'),
@@ -103,6 +103,7 @@ urlpatterns = [
 
     re_path(r'^getproject/(?P<id>\d+)$', views.getproject, name='getproject'),
     re_path('show_inbuiltproject_requests/', views.show_inbuiltproject_requests, name='show_inbuiltproject_requests'),
+    re_path('user_show_ieeeproject/', views.user_show_ieeeproject, name='user_show_ieeeproject'),
 
     #search projects
     re_path('search/',views.search,name='search'),

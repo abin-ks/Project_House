@@ -250,7 +250,7 @@ def userviewpython(request, id):
    
 
 #delete projects
-def deleteprojects(request, id):
+def deleteprojectss(request, id):
     dela = Addnewproject.objects.get(id=id)
     dela.delete()
     return redirect('adminDash')
@@ -442,6 +442,10 @@ def show_inbuiltproject_requests(request):
     spro = User_req_inbuilt_project.objects.all()
     return render(request, 'Administrator/getreq_inbuiltprojects.html', {'spo': spro})
 
+def user_show_ieeeproject(request):
+    spro = User_req_ieeeproject.objects.all()
+    return render(request, 'Administrator/user_show_ieeeproject.html', {'spo': spro})
+
 
 def main_ieee(request):
     if 'admin' in request.session:
@@ -601,6 +605,7 @@ def interview_q_a(request):
     if 'admin' in request.session:
         plat = Addnewplatform.objects.all()
         s=Q_A.objects.all()
+        
         return render(request,'Administrator/admin_interview_Q_A.html',{'s':s,'plat':plat})
     else:
         return redirect('admin_login')
